@@ -3,42 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahmoud Faheem Mohamed Faheem | Academic Portfolio & CV</title>
+  <title>mahmoud faheem | pharmacist · computational biologist · microbiologist</title>
   
-  <!-- Editorial Typography: Newsreader (Serif) & Inter (Clean Sans) -->
+  <!-- Fonts: Playfair Display / Cormorant Garamond for bold serif headers, Inter for clean typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #faf9f6;
-      --bg-surface: #ffffff;
-      --bg-subtle: #f2efe9;
-      --text: #1d1d1f;
-      --text-muted: #646468;
-      --text-light: #8e8e93;
-      --border: #e5e2db;
-      --border-subtle: #edeae3;
-      --accent: #264653;
-      --accent-hover: #1b323c;
-      --font-serif: 'Newsreader', Georgia, serif;
+      --bg: #111213;
+      --nav-bg: #17181a;
+      --text-main: #d4d4d8;
+      --text-bright: #ffffff;
+      --text-muted: #80808a;
+      --nav-active: #48a9a6;
+      --border-subtle: #242528;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --max-w: 780px;
     }
 
-    [data-theme="dark"] {
-      --bg: #141416;
-      --bg-surface: #1c1c1f;
-      --bg-subtle: #242428;
-      --text: #f0f0f2;
-      --text-muted: #a0a0a8;
-      --text-light: #6e6e76;
-      --border: #2c2c32;
-      --border-subtle: #24242a;
-      --accent: #78a1bb;
-      --accent-hover: #96bbd4;
+    [data-theme="light"] {
+      --bg: #faf9f6;
+      --nav-bg: #f0eee9;
+      --text-main: #2b2b2e;
+      --text-bright: #111112;
+      --text-muted: #6b6b74;
+      --nav-active: #1d706d;
+      --border-subtle: #e2dfd7;
     }
 
     * {
@@ -49,764 +41,559 @@
 
     body {
       background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      line-height: 1.7;
-      transition: background-color 0.25s ease, color 0.25s ease;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 5rem;
-    }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Minimalist Top Nav */
-    header {
-      padding: 2.5rem 0 3.5rem;
-      border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: 3.5rem;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .nav-brand {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
+      color: var(--text-main);
       font-family: var(--font-sans);
-      font-size: 0.85rem;
-      text-transform: lowercase;
-      letter-spacing: 0.04em;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    .nav-links a {
+    /* Left Sidebar Navigation (Matching exact Ubadah Sabbagh layout) */
+    .sidebar {
+      width: 140px;
+      min-width: 140px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.2rem 1.4rem;
+      border-right: 1px solid var(--border-subtle);
+      background-color: var(--bg);
+      z-index: 100;
+    }
+
+    .brand-monogram {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--text-bright);
+      text-decoration: none;
+      border: 1.5px solid var(--text-bright);
+      padding: 0.2rem 0.45rem;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 2rem;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .nav-item {
+      font-size: 0.92rem;
       color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
+      cursor: pointer;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
+    .nav-item:hover, .nav-item.active {
+      color: var(--text-bright);
     }
 
-    .theme-toggle {
+    .sidebar-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .theme-toggle-btn {
       background: none;
       border: none;
       color: var(--text-muted);
       cursor: pointer;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+      font-size: 1rem;
+      line-height: 1;
       padding: 0;
+      transition: color 0.2s;
     }
-    .theme-toggle:hover { color: var(--text); }
+    .theme-toggle-btn:hover { color: var(--text-bright); }
 
-    /* Hero / Intro */
-    .hero {
-      margin-bottom: 4rem;
+    .lang-label {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .lang-label:hover { color: var(--text-bright); }
+
+    /* Main Content Area */
+    .content-area {
+      margin-left: 140px;
+      flex: 1;
+      padding: 6rem 5rem 6rem 6.5rem;
+      max-width: 1400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
     }
 
-    .name-title {
-      font-size: 2.8rem;
+    @media (max-width: 1024px) {
+      .content-area {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 5rem 2.5rem;
+        gap: 3rem;
+      }
+      .sidebar {
+        width: 110px;
+        min-width: 110px;
+        padding: 1.8rem 1rem;
+      }
+      .content-area {
+        margin-left: 110px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 1.2rem 1.5rem;
+      }
+      .content-area {
+        margin-left: 0;
+        padding: 2.5rem 1.5rem;
+      }
+      .portrait-wrapper {
+        order: -1;
+        width: 100% !important;
+        max-width: 340px !important;
+      }
+    }
+
+    /* Left Narrative Column */
+    .narrative-col {
+      max-width: 580px;
+      z-index: 2;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: 4.8rem;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--text-bright);
+      margin-bottom: 1.5rem;
+      text-transform: lowercase;
+    }
+
+    .hero-name span.degree {
+      font-size: 1.35rem;
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
+      font-family: var(--font-serif);
+      margin-left: 0.4rem;
+      color: var(--text-muted);
+      letter-spacing: normal;
+      vertical-align: baseline;
     }
 
-    .descriptor {
+    .hero-subtitle {
       font-family: var(--font-sans);
       font-size: 0.95rem;
-      text-transform: lowercase;
-      letter-spacing: 0.05em;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.4rem;
     }
 
-    .bio-lead {
-      font-size: 1.35rem;
+    .hero-statement {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin-bottom: 1.6rem;
       font-weight: 300;
-      line-height: 1.55;
-      margin-bottom: 1.5rem;
-      color: var(--text);
     }
 
-    .bio-text {
-      margin-bottom: 1.25rem;
-      color: var(--text);
+    .hero-statement strong {
+      color: var(--text-bright);
+      font-weight: 500;
     }
 
-    .actions {
+    .links-row {
       display: flex;
-      gap: 1.25rem;
       align-items: center;
-      margin-top: 2rem;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
+      gap: 1.8rem;
+      margin-top: 2.4rem;
+      font-size: 0.95rem;
     }
 
-    .btn-link {
+    .action-link {
+      color: var(--text-main);
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    .btn-link:hover { opacity: 0.8; }
-
-    .btn-outline {
-      padding: 0.45rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text);
-      text-decoration: none;
-      background: var(--bg-surface);
-      transition: all 0.2s;
-    }
-    .btn-outline:hover {
-      border-color: var(--text-muted);
-      background: var(--bg-subtle);
+      transition: color 0.2s ease;
     }
 
-    /* Section Structure */
-    section {
-      margin-bottom: 4.5rem;
+    .action-link:hover {
+      color: var(--text-bright);
     }
 
-    .section-label {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-light);
-      margin-bottom: 2rem;
+    /* Pointillist / Halftone Stylized Portrait Canvas (Like Sabbagh's Stippling) */
+    .portrait-wrapper {
+      width: 440px;
+      max-width: 440px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 1rem;
-    }
-    .section-label::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--border-subtle);
+      position: relative;
     }
 
-    /* Item Entries */
-    .entry-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+    #stipple-canvas {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      opacity: 0.88;
+      filter: contrast(115%);
+      transition: opacity 0.3s ease;
     }
 
-    .entry {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 600px) {
-      .entry {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-      }
-      .name-title { font-size: 2.2rem; }
-    }
-
-    .entry-year {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-light);
-      padding-top: 0.3rem;
-    }
-
-    .entry-title {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-
-    .entry-subtitle {
-      font-family: var(--font-sans);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .entry-desc {
-      font-size: 1.05rem;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .entry-desc ul {
-      margin-left: 1.25rem;
-      margin-top: 0.35rem;
-    }
-
-    .entry-desc li {
-      margin-bottom: 0.35rem;
-    }
-
-    /* Editorial Links */
-    .editorial-link {
-      color: var(--text);
-      text-decoration: underline;
-      text-decoration-color: var(--border);
-      text-underline-offset: 4px;
-      transition: text-decoration-color 0.2s, color 0.2s;
-    }
-    .editorial-link:hover {
-      text-decoration-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Projects / Databases Grid */
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem;
-      background: var(--bg-surface);
-      margin-bottom: 1.5rem;
-      transition: border-color 0.2s ease;
-    }
-    .project-card:hover {
-      border-color: var(--text-muted);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-title {
-      font-size: 1.25rem;
-      font-weight: 500;
-    }
-
-    .project-badge {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      background: var(--bg-subtle);
-      padding: 0.2rem 0.5rem;
-      border-radius: 3px;
-      color: var(--text-muted);
-    }
-
-    .project-body {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-
-    .project-footer {
-      display: flex;
-      gap: 1.25rem;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-    }
-
-    /* Pill Badges for Skills */
-    .skill-cluster {
-      margin-bottom: 1.5rem;
-    }
-    .cluster-title {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-subtle);
-      color: var(--text);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-    }
-
-    /* Print-Only CV Modal */
+    /* Modal for CV / Bio */
     #cv-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
       overflow-y: auto;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
     }
-    #cv-modal.active { display: flex; justify-content: center; align-items: flex-start; }
-    
-    .cv-paper {
+    #cv-modal.active { display: flex; justify-content: center; }
+
+    .cv-card {
+      background: #17181a;
+      border: 1px solid var(--border-subtle);
+      color: #e2e2e5;
+      max-width: 820px;
+      width: 100%;
+      padding: 3.5rem;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      position: relative;
+      height: fit-content;
+    }
+
+    [data-theme="light"] .cv-card {
       background: #ffffff;
       color: #111;
-      max-width: 800px;
-      width: 100%;
-      padding: 3rem;
-      border-radius: 6px;
-      font-family: var(--font-serif);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-      position: relative;
+      border-color: #ddd;
     }
-    .cv-actions {
+
+    .cv-top-bar {
       display: flex;
       justify-content: flex-end;
-      gap: 0.75rem;
+      gap: 1rem;
       margin-bottom: 2rem;
-      font-family: var(--font-sans);
+    }
+
+    .cv-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .cv-btn:hover { color: var(--text-bright); border-color: var(--text-muted); }
+
+    .cv-section {
+      margin-bottom: 2.2rem;
+    }
+
+    .cv-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .cv-year {
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
 
     @media print {
       body * { visibility: hidden; }
       #cv-modal, #cv-modal * { visibility: visible; }
-      #cv-modal { position: absolute; left: 0; top: 0; width: 100%; background: none; padding: 0; }
-      .cv-paper { box-shadow: none; padding: 0; width: 100%; max-width: 100%; }
-      .cv-actions { display: none; }
-    }
-
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 2.5rem 0;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      color: var(--text-light);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      #cv-modal { position: absolute; left: 0; top: 0; background: none; padding: 0; width: 100%; }
+      .cv-card { border: none; padding: 0; max-width: 100%; color: #000; background: #fff; }
+      .cv-top-bar { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <nav class="nav-inner">
-        <a href="#" class="nav-brand">Mahmoud Faheem</a>
-        <ul class="nav-links">
-          <li><a href="#about">about</a></li>
-          <li><a href="#research">research</a></li>
-          <li><a href="#platforms">platforms</a></li>
-          <li><a href="#talks">talks</a></li>
-          <li><a href="#contact">contact</a></li>
-          <li>
-            <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
-              <span id="theme-icon">◐</span>
-            </button>
-          </li>
+  <!-- Left Sidebar (Matching Sabbagh's layout) -->
+  <aside class="sidebar">
+    <div>
+      <a href="#" class="brand-monogram">MF</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-item active">home</a></li>
+          <li><a href="#about" class="nav-item">bio</a></li>
+          <li><a href="#science" class="nav-item">science</a></li>
+          <li><a href="#platforms" class="nav-item">platforms</a></li>
+          <li><a href="#talks" class="nav-item">talks</a></li>
+          <li><a href="#contact" class="nav-item">contact</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero" id="about">
-        <h1 class="name-title">Mahmoud Faheem Mohamed Faheem</h1>
-        <div class="descriptor">Pharmacist · Computational Biologist · Microbial Genomics</div>
+    <div class="sidebar-footer">
+      <button class="theme-toggle-btn" id="theme-btn" title="Toggle theme">◐</button>
+      <a href="#ar" class="lang-label" title="Arabic version">ع</a>
+    </div>
+  </aside>
 
-        <div class="bio-lead">
-          Investigating antimicrobial resistance dynamics through metagenomics, mobile genetic elements, and sequence analytics.
-        </div>
+  <!-- Main Hero Viewport -->
+  <main class="content-area" id="home">
+    <div class="narrative-col">
+      <h1 class="hero-name">
+        mahmoud<br>faheem <span class="degree">.</span>
+      </h1>
 
-        <div class="bio-text">
-          I am a university teaching assistant in the Department of Microbiology & Immunology at MTI University and currently pursuing my MSc in Pharmaceutical Sciences at Ain Shams University. My work bridges high-throughput sequence data analysis with classical antimicrobial susceptibility testing, exploring how resistance genes mobilize across bacterial populations.
-        </div>
-
-        <div class="bio-text">
-          Previously, I completed a Postgraduate Diploma in Genomics & Bioinformatics and a B.Pharm in Clinical Pharmacy at Cairo University, and conducted research at the Biotechnology & Cell Culture Units and Children's Cancer Hospital Egypt (57357).
-        </div>
-
-        <div class="actions">
-          <a href="#contact" class="btn-link">get in touch &rarr;</a>
-          <button class="btn-outline" onclick="openCVModal()">View / Print CV &nearr;</button>
-        </div>
-      </section>
-
-      <!-- Platforms & Databases -->
-      <section id="platforms">
-        <div class="section-label">Selected Scientific Platforms & Databases</div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">COCTAIL Hub Project</h3>
-            <span class="project-badge">2020 – Present</span>
-          </div>
-          <div class="project-body">
-            Developed and curated an evidence-based literature repository indexing over 1,900 PubMed-cataloged COVID-19 clinical and epidemiological intervention trials. Hosted officially on the Faculty of Pharmacy, Cairo University portal as an institutional pandemic reference.
-          </div>
-          <div class="project-footer">
-            <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener" class="btn-link">host-pathogen.net/covid &nearr;</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Antimicrobial Resistance Genes (ARG) Portal</h3>
-            <span class="project-badge">2017 – Present</span>
-          </div>
-          <div class="project-body">
-            Led a research team to build a comprehensive curated relational database and query portal cataloging 1,690+ resistance gene variants, Ambler coordinates, amino acid substitutions, and 3,380+ nucleotide and protein sequences mapped directly to NCBI, BLAST, and UniProt.
-          </div>
-          <div class="project-footer">
-            <a href="https://mahmoudfaheem.github.io/amr-portal/" target="_blank" rel="noopener" class="btn-link">amr-portal &nearr;</a>
-            <a href="https://github.com/MahmoudFaheem/amr-portal" target="_blank" rel="noopener" class="btn-link">github repository &nearr;</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Appointments & Research -->
-      <section id="research">
-        <div class="section-label">Academic & Research Appointments</div>
-
-        <div class="entry-list">
-          <div class="entry">
-            <div class="entry-year">2023 – Present</div>
-            <div>
-              <div class="entry-title">Teaching Assistant</div>
-              <div class="entry-subtitle">Modern University for Technology & Information (MTI) · Faculty of Pharmacy</div>
-              <div class="entry-desc">
-                Conducting laboratory tutorials and delivering technical mentorship in fundamental microbiology, immunology, and antimicrobial susceptibility testing.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2023 – 2024</div>
-            <div>
-              <div class="entry-title">Research Intern (Volunteer)</div>
-              <div class="entry-subtitle">Children's Cancer Hospital Egypt 57357 (CCHE)</div>
-              <div class="entry-desc">
-                Contributed to the Microbiology and Immunology Research Program investigating pediatric clinical isolates and pathogen surveillance.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2020 – 2022</div>
-            <div>
-              <div class="entry-title">Teaching Assistant & Research Assistant</div>
-              <div class="entry-subtitle">October 6 University · Biotechnology & Cell Culture Units</div>
-              <div class="entry-desc">
-                <ul>
-                  <li>Designed and delivered 10 interactive workshops on eukaryotic DNA isolation strategies and downstream agarose gel electrophoresis analysis (Biotechnology Unit).</li>
-                  <li>Conducted cytotoxicity and cell viability studies on MCF-7 breast cancer cell line kinetics using Trypan blue exclusion, MTT colorimetric assays, and hemocytometer cell counts (Cell Culture Unit).</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">Summer 2017</div>
-            <div>
-              <div class="entry-title">Research Intern</div>
-              <div class="entry-subtitle">Faculty of Pharmacy, Cairo University · Dept. of Microbiology & Immunology</div>
-              <div class="entry-desc">
-                Executed in silico analysis and wet-lab experiments on multidrug-resistant <em>Acinetobacter baumannii</em> isolates as part of a therapeutic regimen evaluation cohort.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education">
-        <div class="section-label">Education & Qualifications</div>
-
-        <div class="entry-list">
-          <div class="entry">
-            <div class="entry-year">2021 – Present</div>
-            <div>
-              <div class="entry-title">MSc in Pharmaceutical Sciences (Microbiology & Immunology)</div>
-              <div class="entry-subtitle">Ain Shams University · Faculty of Pharmacy</div>
-              <div class="entry-desc">
-                Core coursework completed; master's thesis investigating microbial genomics, metagenomics, and resistome profiling in clinical and environmental isolates.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2020 – 2021</div>
-            <div>
-              <div class="entry-title">Postgraduate Diploma in Genomics & Bioinformatics</div>
-              <div class="entry-subtitle">Cairo University · Faculty of Pharmacy (FOPCU)</div>
-              <div class="entry-desc">
-                High-throughput sequencing analytics, multi-omics integration, statistical computing with R, Python scripting, and Linux shell pipelines.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2013 – 2018</div>
-            <div>
-              <div class="entry-title">Bachelor of Pharmacy (Clinical Pharmacy, B.Pharm)</div>
-              <div class="entry-subtitle">Cairo University · Faculty of Pharmacy (FOPCU)</div>
-              <div class="entry-desc">
-                Five-year professional degree covering pharmaceutical microbiology, pharmacotherapy, pathogen biology, and clinical biochemistry.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Scientific Toolkits & Capabilities -->
-      <section id="skills">
-        <div class="section-label">Methods & Toolkits</div>
-
-        <div class="skill-cluster">
-          <div class="cluster-title">Bioinformatics & Sequence Analysis</div>
-          <div class="tags">
-            <span class="tag">Bowtie2</span>
-            <span class="tag">DIAMOND</span>
-            <span class="tag">SAMtools</span>
-            <span class="tag">BEDTools</span>
-            <span class="tag">NCBI SRA Toolkit</span>
-            <span class="tag">BLAST+</span>
-            <span class="tag">CARD / RGI</span>
-            <span class="tag">BV-BRC</span>
-            <span class="tag">Ensembl REST</span>
-            <span class="tag">FASTQ/FASTA QC</span>
-          </div>
-        </div>
-
-        <div class="skill-cluster">
-          <div class="cluster-title">Computational Programming & Environments</div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">R (RStudio)</span>
-            <span class="tag">Bash / Linux (Ubuntu)</span>
-            <span class="tag">AWK</span>
-            <span class="tag">SQL</span>
-            <span class="tag">PHP</span>
-            <span class="tag">Git & GitHub</span>
-          </div>
-        </div>
-
-        <div class="skill-cluster">
-          <div class="cluster-title">Laboratory & Experimental Protocols</div>
-          <div class="tags">
-            <span class="tag">BSL-2 Practices</span>
-            <span class="tag">Bacterial Culture & Isolation</span>
-            <span class="tag">AST (Kirby-Bauer & MIC)</span>
-            <span class="tag">DNA Extraction (QIAamp)</span>
-            <span class="tag">PCR Amplification</span>
-            <span class="tag">Agarose Gel Electrophoresis</span>
-            <span class="tag">Cell Viability (MTT / Trypan Blue)</span>
-            <span class="tag">MCF-7 Cell Culture</span>
-            <span class="tag">Differential Staining</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Talks & Presentations -->
-      <section id="talks">
-        <div class="section-label">Presentations & Academic Activities</div>
-
-        <div class="entry-list">
-          <div class="entry">
-            <div class="entry-year">2021</div>
-            <div>
-              <div class="entry-title">Text Mining – COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</div>
-              <div class="entry-subtitle">International Society for Computational Biology (ISCB) Conference · Colorado, USA</div>
-              <div class="entry-desc">
-                Poster presentation. Ramy K. Aziz (presenting), Mahmoud Faheem, Shaimaa Hegazy.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2018</div>
-            <div>
-              <div class="entry-title">Database of Antimicrobial Resistance Genes: Modeling and Predicting the Resistome</div>
-              <div class="entry-subtitle">9th International Scientific Conference of the Faculty of Pharmacy (ISC-FOPCU) · Cairo, Egypt</div>
-              <div class="entry-desc">
-                Oral presentation. Shaimaa Hegazy, Mahmoud Faheem.
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2025</div>
-            <div>
-              <div class="entry-title">Machine Learning in Biomedical Research & Discovering Disease Pathways</div>
-              <div class="entry-subtitle">Arab Biobank Collaborative Network Conference (ABCO) · Cairo, Egypt</div>
-              <div class="entry-desc">Advanced multi-omics data integration workshop.</div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="entry-year">2024</div>
-            <div>
-              <div class="entry-title">6th Harvard Chan Microbiome Center Symposium</div>
-              <div class="entry-subtitle">Harvard T.H. Chan School of Public Health · Boston (Virtual)</div>
-              <div class="entry-desc">Focus on microbiome dynamics in oncogenesis and cancer immunology.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Affiliations -->
-      <section id="affiliations">
-        <div class="section-label">Professional Affiliations</div>
-        <p class="bio-text">
-          Member, <strong>Applied Microbiology International (AMI)</strong>.
-        </p>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <div class="section-label">Contact & Presence</div>
-        <p class="bio-text" style="margin-bottom: 1.5rem;">
-          Feel free to reach out for collaborations regarding resistome genomics, computational pipelines, or academic inquiries:
-        </p>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-family: var(--font-sans); font-size: 0.95rem;">
-          <li><strong>Email:</strong> <a href="mailto:mahmoudfm.faheem@gmail.com" class="editorial-link">mahmoudfm.faheem@gmail.com</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener" class="editorial-link">linkedin.com/in/mahmoudfaheem &nearr;</a></li>
-          <li><strong>Twitter / X:</strong> <a href="https://x.com/faheemmfm" target="_blank" rel="noopener" class="editorial-link">@faheemmfm &nearr;</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener" class="editorial-link">github.com/MahmoudFaheem &nearr;</a></li>
-          <li><strong>Location:</strong> Cairo / Giza, Egypt</li>
-        </ul>
-      </section>
-    </main>
-
-    <footer>
-      <div>&copy; 2026 Mahmoud Faheem Mohamed Faheem</div>
-      <div>Designed with minimalist editorial typography</div>
-    </footer>
-  </div>
-
-  <!-- Print / Formal CV Modal -->
-  <div id="cv-modal" onclick="if(event.target === this) closeCVModal()">
-    <div class="cv-paper">
-      <div class="cv-actions">
-        <button class="btn-outline" onclick="window.print()">Print or Save as PDF</button>
-        <button class="btn-outline" onclick="closeCVModal()">Close</button>
+      <div class="hero-subtitle">
+        pharmacist · computational biologist · microbiologist
       </div>
 
-      <header style="border-bottom: 2px solid #222; padding-bottom: 1rem; margin-bottom: 1.5rem;">
-        <h1 style="font-size: 2rem; font-weight: 500; margin-bottom: 0.25rem;">MAHMOUD FAHEEM MOHAMED FAHEEM</h1>
-        <div style="font-family: var(--font-sans); font-size: 0.85rem; color: #555;">
+      <p class="hero-statement">
+        Investigating antimicrobial resistance dynamics through microbial genomics, gut metagenomics, and mobile genetic elements.
+      </p>
+
+      <p class="hero-statement">
+        I am a university teaching assistant in the Department of Microbiology &amp; Immunology at MTI University, and pursuing my Master's at Ain Shams University. Previously, I conducted research at Children's Cancer Hospital Egypt (57357), October 6 University, and Cairo University.
+      </p>
+
+      <p class="hero-statement">
+        I'm also developer and lead curator of the <strong>COCTAIL Hub Project</strong> and lead developer of the <strong>Antimicrobial Resistance Genes (ARG) Portal</strong>.
+      </p>
+
+      <div class="links-row">
+        <a href="#bio-modal" class="action-link" onclick="openModal('bio')">bio &rarr;</a>
+        <a href="#cv-modal" class="action-link" onclick="openModal('cv')">cv &#8599;</a>
+        <a href="https://github.com/MahmoudFaheem/amr-portal" target="_blank" rel="noopener" class="action-link">amr portal &#8599;</a>
+        <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link">contact &#8599;</a>
+      </div>
+    </div>
+
+    <!-- Generative Stippling/Pointillism Canvas (Matching Sabbagh's artistic portrait) -->
+    <div class="portrait-wrapper">
+      <canvas id="stipple-canvas" width="480" height="560"></canvas>
+    </div>
+  </main>
+
+  <!-- CV / Bio Modal -->
+  <div id="cv-modal" onclick="if(event.target === this) closeModal()">
+    <div class="cv-card">
+      <div class="cv-top-bar">
+        <button class="cv-btn" onclick="window.print()">Print / Save PDF</button>
+        <button class="cv-btn" onclick="closeModal()">Close &times;</button>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--text-bright);">
+          Mahmoud Faheem Mohamed Faheem
+        </h2>
+        <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.4rem;">
           Email: mahmoudfm.faheem@gmail.com &bull; Phone: +20 111 785 0777 &bull; Cairo, Egypt<br>
           LinkedIn: linkedin.com/in/mahmoudfaheem &bull; GitHub: github.com/MahmoudFaheem
         </div>
-      </header>
+      </div>
 
-      <section style="margin-bottom: 1.75rem;">
-        <h2 style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; margin-bottom: 0.75rem;">Professional Summary</h2>
-        <p style="font-size: 1rem; line-height: 1.6;">
-          Early-career researcher with formal qualifications in clinical pharmacy and postgraduate bioinformatics. Extensive laboratory and in silico experience evaluating antimicrobial resistance mechanisms, microbial genomics, and metagenomic sequence datasets.
+      <div class="cv-section">
+        <div class="cv-section-title">Research &amp; Academic Experience</div>
+        <div class="cv-item">
+          <div class="cv-year">2023 &ndash; Present</div>
+          <div>
+            <strong style="color: var(--text-bright);">Teaching Assistant</strong> &mdash; Modern University for Technology &amp; Information (MTI)<br>
+            <span style="color: var(--text-muted);">Faculty of Pharmacy. Teaching microbiology, immunology, and AST lab tutorials.</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-year">2023 &ndash; 2024</div>
+          <div>
+            <strong style="color: var(--text-bright);">Research Intern (Volunteer)</strong> &mdash; Children's Cancer Hospital Egypt 57357 (CCHE)<br>
+            <span style="color: var(--text-muted);">Microbiology and Immunology Research Program.</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-year">2020 &ndash; 2022</div>
+          <div>
+            <strong style="color: var(--text-bright);">Teaching &amp; Research Assistant</strong> &mdash; October 6 University<br>
+            <span style="color: var(--text-muted);">Biotechnology Unit (eukaryotic DNA extraction &amp; gel electrophoresis workshops); Cell Culture Unit (MCF-7 cytotoxicity, MTT, Trypan blue assays).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Education</div>
+        <div class="cv-item">
+          <div class="cv-year">2021 &ndash; Present</div>
+          <div>
+            <strong style="color: var(--text-bright);">MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology)</strong><br>
+            Ain Shams University, Faculty of Pharmacy.
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-year">2020 &ndash; 2021</div>
+          <div>
+            <strong style="color: var(--text-bright);">Postgraduate Diploma in Genomics &amp; Bioinformatics</strong><br>
+            Cairo University, Faculty of Pharmacy (FOPCU).
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-year">2013 &ndash; 2018</div>
+          <div>
+            <strong style="color: var(--text-bright);">Bachelor of Pharmacy (Clinical Pharmacy)</strong><br>
+            Cairo University, Faculty of Pharmacy (FOPCU).
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Scientific Databases &amp; Platforms</div>
+        <div class="cv-item">
+          <div class="cv-year">2020 &ndash; Present</div>
+          <div>
+            <strong style="color: var(--text-bright);">COCTAIL Hub Project</strong> &mdash; Lead Curation &amp; Database Developer<br>
+            <span style="color: var(--text-muted);">Evidence-based repository indexing 1,900+ PubMed COVID-19 clinical trials. Hosted on FOPCU portal.</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-year">2017 &ndash; Present</div>
+          <div>
+            <strong style="color: var(--text-bright);">Antimicrobial Resistance Genes (ARG) Portal</strong> &mdash; Project Lead<br>
+            <span style="color: var(--text-muted);">Cataloging 1,690+ resistance gene variants, Ambler coordinates, and 3,380+ nucleotide/protein sequences.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Technical Expertise</div>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+          <strong>Dry-Lab:</strong> Bowtie2, DIAMOND, SAMtools, BEDTools, NCBI SRA Toolkit, Python, R (RStudio), Bash (Linux), AWK, SQL, PHP.<br>
+          <strong>Wet-Lab:</strong> BSL-2 practices, AST (MIC, disc diffusion), genomic DNA extraction (QIAamp), PCR, agarose electrophoresis, MCF-7 cell culture &amp; viability assays (MTT, Trypan blue).
         </p>
-      </section>
-
-      <section style="margin-bottom: 1.75rem;">
-        <h2 style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; margin-bottom: 0.75rem;">Appointments & Experience</h2>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Teaching Assistant</strong> &mdash; Modern University for Technology & Information (MTI) <span style="float: right;">2023 &ndash; Present</span><br>
-          <em>Faculty of Pharmacy</em>: Laboratory tutorials and student training in fundamental microbiology and immunology.
-        </div>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Research Intern (Volunteer)</strong> &mdash; Children's Cancer Hospital Egypt 57357 (CCHE) <span style="float: right;">2023 &ndash; 2024</span><br>
-          <em>Microbiology and Immunology Research Program</em>.
-        </div>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Teaching Assistant & Research Assistant</strong> &mdash; October 6 University <span style="float: right;">2020 &ndash; 2022</span><br>
-          <em>Biotechnology Unit</em>: 10 interactive workshops on DNA isolation and agarose electrophoresis.<br>
-          <em>Cell Culture Unit</em>: MCF-7 breast cancer cell viability assays (MTT, Trypan blue, hemocytometer).
-        </div>
-      </section>
-
-      <section style="margin-bottom: 1.75rem;">
-        <h2 style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; margin-bottom: 0.75rem;">Education</h2>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>MSc in Pharmaceutical Sciences (Microbiology & Immunology)</strong> &mdash; Ain Shams University <span style="float: right;">2021 &ndash; Present</span>
-        </div>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Postgraduate Diploma in Genomics & Bioinformatics</strong> &mdash; Cairo University (FOPCU) <span style="float: right;">2020 &ndash; 2021</span>
-        </div>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Bachelor of Pharmacy (Clinical Pharmacy)</strong> &mdash; Cairo University (FOPCU) <span style="float: right;">2013 &ndash; 2018</span>
-        </div>
-      </section>
-
-      <section style="margin-bottom: 1.75rem;">
-        <h2 style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; margin-bottom: 0.75rem;">Selected Database & Software Projects</h2>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>COCTAIL Hub Project</strong> &mdash; Lead Curation & Database Developer <span style="float: right;">2020 &ndash; Present</span><br>
-          Mapped 1,900+ PubMed clinical trials. Official institutional resource on FOPCU portal.
-        </div>
-        <div style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-          <strong>Antimicrobial Resistance Gene (ARG) Database & Portal</strong> &mdash; Project Lead <span style="float: right;">2017 &ndash; Present</span><br>
-          Relational catalog of 1,690+ variants and 3,380+ nucleotide/protein sequences linked to NCBI/BLAST.
-        </div>
-      </section>
-
-      <section>
-        <h2 style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #ccc; padding-bottom: 0.2rem; margin-bottom: 0.75rem;">Affiliations</h2>
-        <div style="font-size: 0.95rem;">Applied Microbiology International (AMI)</div>
-      </section>
+      </div>
     </div>
   </div>
 
   <script>
     // Theme toggle
     const themeBtn = document.getElementById('theme-btn');
-    const themeIcon = document.getElementById('theme-icon');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    
-    if (currentTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
 
     themeBtn.addEventListener('click', () => {
       const active = document.documentElement.getAttribute('data-theme');
-      const next = active === 'dark' ? 'light' : 'dark';
+      const next = active === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      drawStippleArt(); // Re-render canvas with adjusted light/dark colors
     });
 
-    // CV Modal handlers
-    function openCVModal() {
+    // Modal controls
+    function openModal(type) {
       document.getElementById('cv-modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-    function closeCVModal() {
+    function closeModal() {
       document.getElementById('cv-modal').classList.remove('active');
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeCVModal();
+      if (e.key === 'Escape') closeModal();
     });
+
+    // Procedural Pointillist / Stippled Portrait Silhouette (Matching Sabbagh's iconic stippled look)
+    function drawStippleArt() {
+      const canvas = document.getElementById('stipple-canvas');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
+      ctx.clearRect(0, 0, w, h);
+      
+      const dotColor = isLight ? 'rgba(30, 30, 35,' : 'rgba(235, 235, 240,';
+      const numDots = 8500;
+
+      // Seeded random distribution to model a researcher portrait silhouette
+      for (let i = 0; i < numDots; i++) {
+        const x = (Math.random() - 0.5) * 2; // -1 to 1
+        const y = (Math.random() - 0.5) * 2; // -1 to 1
+
+        // Head and shoulder oval densities
+        const headDist = Math.hypot(x * 1.3, (y + 0.25) * 1.05);
+        const shoulderDist = Math.hypot(x * 0.7, (y - 0.8) * 1.6);
+        const hairDist = Math.hypot((x - 0.05) * 1.15, (y + 0.55) * 1.3);
+
+        let density = 0;
+        if (headDist < 0.65) density += 0.85;
+        if (shoulderDist < 0.85 && y > -0.1) density += 0.75;
+        if (hairDist < 0.45) density += 0.95;
+
+        // Facial feature shadows (eyes, nose, beard stipple concentration)
+        const eyeL = Math.hypot((x + 0.16) * 3, (y + 0.18) * 4);
+        const eyeR = Math.hypot((x - 0.16) * 3, (y + 0.18) * 4);
+        const beard = Math.hypot(x * 1.5, (y - 0.18) * 2);
+        
+        if (eyeL < 0.2 || eyeR < 0.2) density += 0.8;
+        if (beard < 0.45 && y > -0.05) density += 0.65;
+
+        if (Math.random() < density * 0.7) {
+          const px = (x * 0.5 + 0.5) * w;
+          const py = (y * 0.5 + 0.5) * h;
+          const radius = Math.random() * 1.25 + 0.4;
+          const alpha = (Math.random() * 0.65 + 0.25).toFixed(2);
+
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0, Math.PI * 2);
+          ctx.fillStyle = dotColor + alpha + ')';
+          ctx.fill();
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', drawStippleArt);
   </script>
 </body>
 </html>
