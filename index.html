@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahmoud Faheem | Microbiologist & Computational Biologist</title>
+  <title>Mahmoud Faheem | Bioinformatician & Microbiologist</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +14,14 @@
       --bg: #0b0c0e;
       --sidebar-bg: #08090a;
       --card-bg: #121316;
+      --card-elevated: #17191e;
       --text-bright: #f4f4f6;
       --text-main: #cfd6df;
       --text-muted: #7e8794;
       --accent-teal: #4ea8a0;
       --accent-amber: #e5a968;
       --border-subtle: #1c1e24;
+      --border-light: #282c36;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -28,18 +30,24 @@
       --bg: #f7f6f2;
       --sidebar-bg: #eeeeea;
       --card-bg: #ffffff;
+      --card-elevated: #f4f2eb;
       --text-bright: #121214;
       --text-main: #323238;
       --text-muted: #72727e;
       --accent-teal: #1e7069;
       --accent-amber: #bd7326;
       --border-subtle: #dedcd4;
+      --border-light: #cac5ba;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -137,25 +145,32 @@
     }
     .lang-label:hover { color: var(--text-bright); }
 
-    /* Main Content Area */
-    .content-area {
+    /* Main Content Wrapper */
+    .main-wrapper {
       margin-left: 140px;
       flex: 1;
-      padding: 5rem 5rem 5rem 6.5rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Main Hero Viewport */
+    .hero-section {
+      padding: 5rem 5rem 4rem 6.5rem;
       max-width: 1400px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      min-height: 100vh;
+      min-height: 92vh;
       position: relative;
     }
 
     @media (max-width: 1024px) {
-      .content-area {
+      .hero-section {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 5rem 2rem 5rem 2.5rem;
+        padding: 5rem 2rem 4rem 2.5rem;
         gap: 3.5rem;
       }
       .sidebar {
@@ -163,7 +178,7 @@
         min-width: 110px;
         padding: 1.8rem 1rem;
       }
-      .content-area {
+      .main-wrapper {
         margin-left: 110px;
       }
     }
@@ -179,8 +194,10 @@
         border-bottom: 1px solid var(--border-subtle);
         padding: 1.2rem 1.5rem;
       }
-      .content-area {
+      .main-wrapper {
         margin-left: 0;
+      }
+      .hero-section {
         padding: 2.5rem 1.5rem;
       }
       .portrait-wrapper {
@@ -204,16 +221,6 @@
       letter-spacing: -0.03em;
       color: var(--text-bright);
       margin-bottom: 1.2rem;
-    }
-
-    .hero-name span.degree {
-      font-size: 1.35rem;
-      font-weight: 400;
-      font-family: var(--font-serif);
-      margin-left: 0.4rem;
-      color: var(--accent-amber);
-      letter-spacing: normal;
-      vertical-align: baseline;
     }
 
     .hero-subtitle {
@@ -255,6 +262,7 @@
       gap: 0.4rem;
       transition: color 0.2s ease, transform 0.2s ease;
       position: relative;
+      cursor: pointer;
     }
 
     .action-link:hover {
@@ -267,7 +275,7 @@
       font-weight: 500;
     }
 
-    /* Natural Pointillist Canvas Wrapper */
+    /* Transparent Pure Particle Canvas */
     .portrait-wrapper {
       width: 440px;
       max-width: 440px;
@@ -295,30 +303,96 @@
       background: transparent;
     }
 
-    .canvas-hint {
-      margin-top: 0.75rem;
-      font-size: 0.75rem;
-      font-family: var(--font-sans);
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    /* Editorial Content Sections */
+    .editorial-section {
+      padding: 4rem 5rem 4rem 6.5rem;
+      max-width: 1100px;
+      border-top: 1px solid var(--border-subtle);
     }
 
-    .replay-btn {
-      background: none;
-      border: 1px solid var(--border-subtle);
-      color: var(--accent-amber);
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 0.72rem;
-      transition: all 0.2s;
+    @media (max-width: 1024px) {
+      .editorial-section {
+        padding: 3rem 2rem 3rem 2.5rem;
+      }
     }
-    .replay-btn:hover {
-      border-color: var(--accent-amber);
-      background: rgba(229, 169, 104, 0.1);
+    @media (max-width: 768px) {
+      .editorial-section {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-teal);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 1.8rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .content-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .card-meta {
+      font-size: 0.82rem;
+      color: var(--accent-amber);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 1rem;
+      color: var(--accent-teal);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .card-link:hover {
+      color: var(--accent-amber);
     }
 
     /* Modal for CV / Bio */
@@ -327,7 +401,7 @@
       position: fixed;
       inset: 0;
       background: rgba(8, 9, 11, 0.92);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       z-index: 1000;
       overflow-y: auto;
       padding: 3rem 1.5rem;
@@ -338,14 +412,14 @@
       background: var(--card-bg);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
-      max-width: 820px;
+      max-width: 860px;
       width: 100%;
       padding: 3.5rem;
       border-radius: 6px;
       font-family: var(--font-sans);
       position: relative;
       height: fit-content;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
     }
 
     .cv-top-bar {
@@ -367,32 +441,95 @@
     }
     .cv-btn:hover { color: var(--accent-amber); border-color: var(--accent-amber); }
 
+    .cv-header-title {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.1;
+    }
+
+    .cv-contact-row {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      line-height: 1.6;
+    }
+    .cv-contact-row a {
+      color: var(--accent-teal);
+      text-decoration: none;
+    }
+    .cv-contact-row a:hover {
+      color: var(--accent-amber);
+    }
+
+    .cv-summary-box {
+      margin-top: 1.4rem;
+      padding: 1.1rem 1.3rem;
+      background: var(--card-elevated);
+      border-left: 3px solid var(--accent-teal);
+      border-radius: 3px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
     .cv-section {
-      margin-bottom: 2.2rem;
+      margin-top: 2.6rem;
     }
 
     .cv-section-title {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent-teal);
       border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.2rem;
+      padding-bottom: 0.45rem;
+      margin-bottom: 1.4rem;
       font-weight: 600;
     }
 
     .cv-item {
       display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      grid-template-columns: 125px 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .cv-year {
-      color: var(--text-muted);
+      color: var(--accent-amber);
       font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .cv-item-title {
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+
+    .cv-item-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .cv-bullet-list {
+      list-style-type: square;
+      margin-left: 1.1rem;
+      margin-top: 0.4rem;
+      color: var(--text-main);
+      font-size: 0.92rem;
+    }
+    .cv-bullet-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .skills-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.93rem;
+      line-height: 1.6;
     }
 
     @media print {
@@ -406,13 +543,14 @@
 </head>
 <body>
 
+  <!-- Left Sidebar Navigation -->
   <aside class="sidebar">
     <div>
-      <a href="#" class="brand-monogram">MF</a>
+      <a href="#home" class="brand-monogram">MF</a>
       <nav>
         <ul class="nav-menu">
           <li><a href="#home" class="nav-item active">home</a></li>
-          <li><a href="#about" class="nav-item" onclick="openModal()">bio</a></li>
+          <li><a href="#bio" class="nav-item" onclick="openModal()">bio &amp; cv</a></li>
           <li><a href="#science" class="nav-item">science</a></li>
           <li><a href="#platforms" class="nav-item">platforms</a></li>
           <li><a href="#talks" class="nav-item">talks</a></li>
@@ -427,46 +565,153 @@
     </div>
   </aside>
 
-  <main class="content-area" id="home">
-    <div class="narrative-col">
-      <h1 class="hero-name">
-        Mahmoud<br>Faheem 
-      </h1>
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
 
-      <div class="hero-subtitle">
-        Early-career researcher | Bioinformatician | Microbiologist
+    <!-- Hero Viewport -->
+    <section class="hero-section" id="home">
+      <div class="narrative-col">
+        <h1 class="hero-name">
+          Mahmoud<br>Faheem
+        </h1>
+
+        <div class="hero-subtitle">
+          Early-career researcher | Bioinformatician | Microbiologist
+        </div>
+
+        <p class="hero-statement">
+          Early-career researcher with formal training in bioinformatics, microbial genomics, gut metagenomics, and antimicrobial resistance dynamics.
+        </p>
+
+        <p class="hero-statement">
+          I serve as a <strong>Teaching Assistant</strong> in the Department of Microbiology &amp; Immunology at <strong>Modern University for Technology &amp; Information (MTI)</strong>, and am completing my Master's at <strong>Ain Shams University</strong> focusing on microbial genomics and resistome profiling.
+        </p>
+
+        <p class="hero-statement">
+          Previously, I conducted research and laboratory instruction across <strong>Children's Cancer Hospital Egypt (57357)</strong>, <strong>October 6 University</strong>, and the <strong>Faculty of Pharmacy, Cairo University (FOPCU)</strong>.
+        </p>
+
+        <div class="links-row">
+          <a class="action-link primary" onclick="openModal()">curriculum vitae &rarr;</a>
+          <a href="#platforms" class="action-link">databases &#8599;</a>
+          <a href="#talks" class="action-link">presentations &#8599;</a>
+          <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener" class="action-link">github &#8599;</a>
+          <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link">contact &#8599;</a>
+        </div>
       </div>
 
-      <p class="hero-statement">
-        Investigating antimicrobial resistance dynamics through microbial genomics, gut metagenomics, and mobile genetic element surveillance.
-      </p>
-
-      <p class="hero-statement">
-        I serve as an Assistant Lecturer / Teaching Assistant in the Department of Microbiology &amp; Immunology at MTI University and am completing my MSc in Pharmaceutical Sciences at Ain Shams University. My background integrates clinical pharmacy, postgraduate bioinformatics, and hands-on laboratory experience across Cairo University, Children's Cancer Hospital Egypt (57357), and October 6 University.
-      </p>
-
-      <p class="hero-statement">
-        Beyond the bench, I develop open-access scientific resources, serving as lead curator for the <strong>COCTAIL Hub Project</strong> and lead developer of the <strong>Antimicrobial Resistance Genes (ARG) Portal</strong>.
-      </p>
-
-      <div class="links-row">
-        <a href="#bio" class="action-link primary" onclick="openModal()">academic bio &rarr;</a>
-        <a href="#cv" class="action-link" onclick="openModal()">curriculum vitae &#8599;</a>
-        <a href="https://github.com/MahmoudFaheem/amr-portal" target="_blank" rel="noopener" class="action-link">amr portal &#8599;</a>
-        <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link">contact &#8599;</a>
+      <!-- Pure Particle Canvas -->
+      <div class="portrait-wrapper">
+        <div class="canvas-container">
+          <canvas id="particle-canvas" width="440" height="589"></canvas>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Transparent Pure Particle Canvas -->
-    <div class="portrait-wrapper">
-      <div class="canvas-container">
-        <canvas id="particle-canvas" width="440" height="589"></canvas>
+    <!-- Research & Science Section -->
+    <section class="editorial-section" id="science">
+      <div class="section-kicker">Research Focus</div>
+      <h2 class="section-heading">Microbial Genomics &amp; Resistome Profiling</h2>
+      <p style="font-size: 1.05rem; line-height: 1.7; max-width: 820px; color: var(--text-main);">
+        Investigating bacterial pathogens and resistome architectures through command-line genomic sequence analysis, metagenomic read mapping, and antimicrobial susceptibility surveillance.
+      </p>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-meta">Master's Research &bull; Ain Shams University</div>
+          <div class="card-title">Resistome Profiling &amp; Microbial Genomics</div>
+          <div class="card-body">
+            Focusing on high-throughput sequencing data analysis, resistome identification, and characterization of mobile genetic elements carrying resistance determinants.
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-meta">Translational Research &bull; CCHE 57357</div>
+          <div class="card-title">Microbiology &amp; Immunology Program</div>
+          <div class="card-body">
+            Volunteer research internship examining microbial and immunological dynamics in clinical oncology settings at Children's Cancer Hospital Egypt.
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-meta">Cell Biology &amp; Molecular Workshops &bull; O6U</div>
+          <div class="card-title">Cytotoxicity Kinetics &amp; Genomic Workshops</div>
+          <div class="card-body">
+            Evaluated MCF-7 breast cancer cell line viability kinetics (MTT, Trypan blue, hemocytometer) and delivered 10 eukaryotic DNA extraction and gel analysis workshops.
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- Platforms & Databases Section -->
+    <section class="editorial-section" id="platforms">
+      <div class="section-kicker">Scientific Infrastructure</div>
+      <h2 class="section-heading">Databases &amp; Open Computational Platforms</h2>
       
-    </div>
-  </main>
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-meta">Lead Developer &amp; Curator &bull; 2020 &ndash; Present</div>
+          <div class="card-title">COCTAIL Hub Project</div>
+          <div class="card-body">
+            Evidence-based literature repository mapping over 1,900 PubMed-indexed COVID-19 clinical and epidemiological trials. Hosted as an official institutional resource on the FOPCU portal.
+          </div>
+          <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener" class="card-link">Explore COCTAIL Hub &rarr;</a>
+        </div>
 
-  <!-- CV Modal -->
+        <div class="content-card">
+          <div class="card-meta">Project Lead &bull; 2017 &ndash; Present</div>
+          <div class="card-title">Antimicrobial Resistance Genes (ARG) Portal</div>
+          <div class="card-body">
+            Relational database cataloging 1,690+ resistance gene variants, Ambler coordinates, and 3,380+ nucleotide/protein sequences linked to NCBI, BLAST, and UniProt.
+          </div>
+          <a href="https://github.com/MahmoudFaheem/amr-portal" target="_blank" rel="noopener" class="card-link">Explore ARG Portal &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Posters & Presentations Section -->
+    <section class="editorial-section" id="talks">
+      <div class="section-kicker">Scholarship</div>
+      <h2 class="section-heading">Posters &amp; Conference Presentations</h2>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-meta">ISCB Conference &bull; Colorado, USA (Dec 2021)</div>
+          <div class="card-title">Text Mining &mdash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</div>
+          <div class="card-body">
+            Prof. Ramy K. Aziz (presenting author), Mahmoud Faheem, Shaimaa Hegazy. Poster presented at the International Society for Computational Biology.
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-meta">9th ISC-FOPCU &bull; Cairo, Egypt (Apr 2018)</div>
+          <div class="card-title">Database of Antimicrobial Resistance Genes: Modeling and Predicting the Resistome</div>
+          <div class="card-body">
+            Shaimaa Hegazy, Mahmoud Faheem. Oral presentation delivered at the 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="editorial-section" id="contact" style="margin-bottom: 4rem;">
+      <div class="section-kicker">Get in Touch</div>
+      <h2 class="section-heading">Connect &amp; Collaborate</h2>
+      <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 2rem; max-width: 600px;">
+        Open to research collaborations, computational metagenomics consulting, and academic discussions in microbial genomics and antimicrobial resistance.
+      </p>
+
+      <div class="links-row" style="margin-top: 0;">
+        <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link primary">mahmoudfm.faheem@gmail.com &#8599;</a>
+        <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener" class="action-link">linkedin &#8599;</a>
+        <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener" class="action-link">twitter / x &#8599;</a>
+        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener" class="action-link">github &#8599;</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Full Academic CV / Bio Modal -->
   <div id="cv-modal" onclick="if(event.target === this) closeModal()">
     <div class="cv-card">
       <div class="cv-top-bar">
@@ -474,91 +719,211 @@
         <button class="cv-btn" onclick="closeModal()">Close &times;</button>
       </div>
 
-      <div style="margin-bottom: 2rem;">
-        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--text-bright);">
-          Mahmoud Faheem Mohamed Faheem
-        </h2>
-        <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.4rem;">
-          Email: mahmoudfm.faheem@gmail.com &bull; Phone: +20 111 785 0777 &bull; Cairo, Egypt<br>
-          LinkedIn: linkedin.com/in/mahmoudfaheem &bull; GitHub: github.com/MahmoudFaheem
+      <div>
+        <h2 class="cv-header-title">Mahmoud Faheem Mohamed Faheem</h2>
+        <div class="cv-contact-row">
+          Email: <a href="mailto:mahmoudfm.faheem@gmail.com">mahmoudfm.faheem@gmail.com</a> &bull; Phone: +20 111 785 0777 &bull; Cairo, Egypt<br>
+          LinkedIn: <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener">linkedin.com/in/mahmoudfaheem</a> &bull; Twitter/X: <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener">@faheemmfm</a> &bull; GitHub: <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener">github.com/MahmoudFaheem</a>
+        </div>
+
+        <div class="cv-summary-box">
+          <strong>Professional Summary:</strong> Early-career researcher with training in bioinformatics, microbial genomics, metagenomics, and antimicrobial resistance analysis.
         </div>
       </div>
 
+      <!-- Research & Professional Experience -->
       <div class="cv-section">
-        <div class="cv-section-title">Research &amp; Academic Experience</div>
+        <div class="cv-section-title">Research &amp; Professional Experience</div>
+        
         <div class="cv-item">
           <div class="cv-year">2023 &ndash; Present</div>
           <div>
-            <strong style="color: var(--text-bright);">Teaching Assistant</strong> &mdash; Modern University for Technology &amp; Information (MTI)<br>
-            <span style="color: var(--text-muted);">Faculty of Pharmacy. Teaching microbiology, immunology, and AST lab tutorials.</span>
+            <div class="cv-item-title">Teaching Assistant</div>
+            <div class="cv-item-sub">Modern University for Technology &amp; Information (MTI) &mdash; Faculty of Pharmacy</div>
+            <ul class="cv-bullet-list">
+              <li>Teaching undergraduate laboratory tutorials and delivering technical mentorship in fundamental microbiology and immunology.</li>
+            </ul>
           </div>
         </div>
+
         <div class="cv-item">
           <div class="cv-year">2023 &ndash; 2024</div>
           <div>
-            <strong style="color: var(--text-bright);">Research Intern (Volunteer)</strong> &mdash; Children's Cancer Hospital Egypt 57357 (CCHE)<br>
-            <span style="color: var(--text-muted);">Microbiology and Immunology Research Program.</span>
+            <div class="cv-item-title">Research Intern (Volunteer)</div>
+            <div class="cv-item-sub">Children's Cancer Hospital Egypt 57357 (CCHE)</div>
+            <ul class="cv-bullet-list">
+              <li>Volunteer research intern at the Microbiology and Immunology Research Program.</li>
+            </ul>
           </div>
         </div>
+
         <div class="cv-item">
           <div class="cv-year">2020 &ndash; 2022</div>
           <div>
-            <strong style="color: var(--text-bright);">Teaching &amp; Research Assistant</strong> &mdash; October 6 University<br>
-            <span style="color: var(--text-muted);">Biotechnology Unit (eukaryotic DNA extraction &amp; gel electrophoresis workshops); Cell Culture Unit (MCF-7 cytotoxicity, MTT, Trypan blue assays).</span>
+            <div class="cv-item-title">Teaching Assistant &amp; Research Assistant</div>
+            <div class="cv-item-sub">October 6 University</div>
+            <ul class="cv-bullet-list">
+              <li>Supervised undergraduate laboratory cohorts across microbiology and immunology curricula.</li>
+              <li>Designed and delivered 10 interactive workshops focused on eukaryotic DNA isolation strategies and downstream agarose gel electrophoresis analysis (Biotechnology Unit).</li>
+              <li>Participated in a cytotoxicity study evaluating MCF-7 breast cancer cell line kinetics; performed cell viability assays using hemocytometer, Trypan blue exclusion, and MTT colorimetric assays (Cell Culture Unit).</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div class="cv-section">
-        <div class="cv-section-title">Education</div>
-        <div class="cv-item">
-          <div class="cv-year">2021 &ndash; Present</div>
-          <div>
-            <strong style="color: var(--text-bright);">MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology)</strong><br>
-            Ain Shams University, Faculty of Pharmacy.
-          </div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-year">2020 &ndash; 2021</div>
-          <div>
-            <strong style="color: var(--text-bright);">Postgraduate Diploma in Genomics &amp; Bioinformatics</strong><br>
-            Cairo University, Faculty of Pharmacy (FOPCU).
-          </div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-year">2013 &ndash; 2018</div>
-          <div>
-            <strong style="color: var(--text-bright);">Bachelor of Pharmacy (Clinical Pharmacy)</strong><br>
-            Cairo University, Faculty of Pharmacy (FOPCU).
-          </div>
-        </div>
-      </div>
-
-      <div class="cv-section">
-        <div class="cv-section-title">Scientific Databases &amp; Platforms</div>
         <div class="cv-item">
           <div class="cv-year">2020 &ndash; Present</div>
           <div>
-            <strong style="color: var(--text-bright);">COCTAIL Hub Project</strong> &mdash; Lead Curation &amp; Database Developer<br>
-            <span style="color: var(--text-muted);">Evidence-based repository indexing 1,900+ PubMed COVID-19 clinical trials. Hosted on FOPCU portal.</span>
+            <div class="cv-item-title">Database Developer &amp; Lead Curation</div>
+            <div class="cv-item-sub">COCTAIL Hub Project &mdash; <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener" style="color: var(--accent-teal);">host-pathogen.net/covid/coctail.html</a></div>
+            <ul class="cv-bullet-list">
+              <li>Developed and actively maintained an evidence-based literature repository mapping over 1,900 PubMed-indexed COVID-19 clinical and epidemiological trials.</li>
+              <li>Hosted on the Faculty of Pharmacy, Cairo University website as an official institutional resource on the COVID-19 pandemic.</li>
+            </ul>
           </div>
         </div>
+
         <div class="cv-item">
           <div class="cv-year">2017 &ndash; Present</div>
           <div>
-            <strong style="color: var(--text-bright);">Antimicrobial Resistance Genes (ARG) Portal</strong> &mdash; Project Lead<br>
-            <span style="color: var(--text-muted);">Cataloging 1,690+ resistance gene variants, Ambler coordinates, and 3,380+ nucleotide/protein sequences.</span>
+            <div class="cv-item-title">Project Lead &mdash; (Ex)-Student Research Team</div>
+            <div class="cv-item-sub">Faculty of Pharmacy, Cairo University (FOPCU)</div>
+            <ul class="cv-bullet-list">
+              <li>Led a student research team to curate a comprehensive antimicrobial resistance gene database, cataloging 1,690+ resistance variants with associated amino acid substitutions and 3,380+ nucleic acid and protein sequences.</li>
+              <li>Architected and deployed the system as a relational database with an interactive web interface linked to bioinformatics resources and tools, including NCBI, BLAST, and UniProt.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-year">Summer 2017</div>
+          <div>
+            <div class="cv-item-title">Research Intern</div>
+            <div class="cv-item-sub">Faculty of Pharmacy, Cairo University (FOPCU)</div>
+            <ul class="cv-bullet-list">
+              <li>Department of Microbiology and Immunology: performed in silico and wet-lab experiments on <em>Acinetobacter baumannii</em> strains as part of a research project evaluating a six-month treatment regimen.</li>
+            </ul>
           </div>
         </div>
       </div>
 
+      <!-- Education -->
       <div class="cv-section">
-        <div class="cv-section-title">Technical Expertise</div>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
-          <strong>Dry-Lab:</strong> Bowtie2, DIAMOND, SAMtools, BEDTools, NCBI SRA Toolkit, Python, R (RStudio), Bash (Linux), AWK, SQL, PHP.<br>
-          <strong>Wet-Lab:</strong> BSL-2 practices, AST (MIC, disc diffusion), genomic DNA extraction (QIAamp), PCR, agarose electrophoresis, MCF-7 cell culture &amp; viability assays (MTT, Trypan blue).
-        </p>
+        <div class="cv-section-title">Education</div>
+        
+        <div class="cv-item">
+          <div class="cv-year">2021 &ndash; Present</div>
+          <div>
+            <div class="cv-item-title">MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology)</div>
+            <div class="cv-item-sub">Ain Shams University &mdash; Faculty of Pharmacy</div>
+            <ul class="cv-bullet-list">
+              <li>Core coursework completed; currently working on master's project focused on microbial genomics and resistome profiling.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-year">2020 &ndash; 2021</div>
+          <div>
+            <div class="cv-item-title">Postgraduate Diploma in Genomics &amp; Bioinformatics</div>
+            <div class="cv-item-sub">Cairo University, Faculty of Pharmacy (FOPCU)</div>
+            <ul class="cv-bullet-list">
+              <li>Advanced training in genomics, multi-omics, high-throughput sequencing data analysis, R, Python, and Linux.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-year">2013 &ndash; 2018</div>
+          <div>
+            <div class="cv-item-title">Bachelor of Pharmacy (Clinical Pharmacy)</div>
+            <div class="cv-item-sub">Cairo University, Faculty of Pharmacy (FOPCU)</div>
+            <ul class="cv-bullet-list">
+              <li>Five-year professional degree covering pharmaceutical sciences, pharmacotherapy, pharmaceutical microbiology, and infectious diseases.</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
+      <!-- Technical Skills -->
+      <div class="cv-section">
+        <div class="cv-section-title">Technical Skills</div>
+        <div class="skills-block">
+          <div>
+            <strong style="color: var(--text-bright);">Bioinformatics &amp; Data Analysis:</strong> Metagenomic and genomic sequence analysis (FASTQ/FASTA), including command-line sequence alignment and sequence data processing using Bowtie2, DIAMOND, SAMtools, BEDTools, and the NCBI SRA Toolkit.
+          </div>
+          <div>
+            <strong style="color: var(--text-bright);">Programming &amp; Computational Tools:</strong> R (RStudio), Python, Bash scripting (Linux/Unix), and AWK; basic knowledge of SQL and PHP.
+          </div>
+          <div>
+            <strong style="color: var(--text-bright);">Specialized Bioinformatics Resources:</strong> NCBI, PubMed, BLAST, CARD, BV-BRC, and Ensembl for sequence analysis and database searches.
+          </div>
+          <div>
+            <strong style="color: var(--text-bright);">Microbiology &amp; Molecular Biology Techniques:</strong> BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis.
+          </div>
+        </div>
+      </div>
+
+      <!-- Posters & Presentations -->
+      <div class="cv-section">
+        <div class="cv-section-title">Posters &amp; Presentations</div>
+        
+        <div class="cv-item">
+          <div class="cv-year">Dec 2021</div>
+          <div>
+            <div class="cv-item-title">Text Mining &mdash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</div>
+            <div class="cv-item-sub">Prof. Ramy K. Aziz (presenting author), Mahmoud Faheem, Shaimaa Hegazy</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Poster, International Society for Computational Biology (ISCB) Conference, Colorado, USA.
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-year">Apr 2018</div>
+          <div>
+            <div class="cv-item-title">Database of Antimicrobial Resistance Genes: Modeling and Predicting the Resistome</div>
+            <div class="cv-item-sub">Presenting members: Shaimaa Hegazy, Mahmoud Faheem</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Oral presentation, 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University (ISC-FOPCU), Cairo, Egypt.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Workshops & Advanced Training -->
+      <div class="cv-section">
+        <div class="cv-section-title">Selected Workshops &amp; Advanced Training</div>
+        <ul class="cv-bullet-list" style="margin-left: 1.2rem;">
+          <li><strong>Machine Learning in Biomedical Research &amp; Discovering Disease Pathways from Multi-omics Data</strong> &mdash; Arab Biobank Collaborative Network Conference (ABCO), July 2025.</li>
+          <li><strong>BV-BRC Viral Subspecies Classification Technical Workshop</strong>, April 2024.</li>
+          <li><strong>Ensembl Browser and REST API Training Modules</strong>, July 2023.</li>
+          <li><strong>Microbial Genomics Analytics &amp; MicroGenome Metagenomic</strong> (BV-BRC Training), Nov.&ndash;Dec. 2022.</li>
+          <li><strong>German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx) Workshop</strong>, Dec. 2019.</li>
+        </ul>
+      </div>
+
+      <!-- Selected Conferences & Symposia -->
+      <div class="cv-section">
+        <div class="cv-section-title">Selected Conferences &amp; Symposia (25+ Professional Events)</div>
+        <ul class="cv-bullet-list" style="margin-left: 1.2rem;">
+          <li>MARC Webinar Series (2024&ndash;2026).</li>
+          <li>Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt (July 2025).</li>
+          <li>6th Harvard Chan Microbiome Center Symposium: The Microbiome and Cancer (May 2024).</li>
+          <li>German-Egyptian Microbiome Research Capacity Building Initiative Symposium, German University in Cairo (GUC, 2024).</li>
+          <li>Egyptian Bioinformatics Workshop Series (4th, 5th, &amp; 6th Editions), Nile University, Egypt (2022&ndash;2024).</li>
+          <li>Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (2nd, 4th, &amp; 5th Editions), National Research Center, Cairo, Egypt (2020&ndash;2024).</li>
+          <li>24th Biennial Evergreen International Phage Meeting (August 2021).</li>
+        </ul>
+      </div>
+
+      <!-- Professional Affiliations -->
+      <div class="cv-section" style="margin-bottom: 0;">
+        <div class="cv-section-title">Professional Affiliations</div>
+        <div style="font-size: 0.95rem; color: var(--text-main);">
+          <strong>Membership:</strong> Applied Microbiology International (AMI)
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -591,13 +956,7 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    /* =====================================================================
-       PURE STIPPLE PARTICLE ASSEMBLY ENGINE:
-       - Generates millions of stipple-particles directly from the target image.
-       - Transparent background clears on every frame, preserving only the dots.
-       - Restricts contrast bloom by capping large particles (no overly bright white areas).
-       - Fills in shadow patterns with natural, sparse silver-grey micro-stipples (no dull zones).
-       ===================================================================== */
+    // Pure Pointillist Particle Assembly Engine
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -622,7 +981,6 @@
         this.originX = originX;
         this.originY = originY;
 
-        // Scattered start positions outside the boundaries
         const angle = Math.random() * Math.PI * 2;
         const dist = Math.random() * 260 + 100;
         this.x = originX + Math.cos(angle) * dist;
@@ -646,7 +1004,6 @@
         this.vx *= this.friction;
         this.vy *= this.friction;
 
-        // Dispersion by interactive cursor
         const mx = this.x - mouse.x;
         const my = this.y - mouse.y;
         const distToMouse = Math.hypot(mx, my);
@@ -674,7 +1031,6 @@
       particles = [];
 
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      // Muted soft silver/ivory in dark, rich deep ink in light
       const dotColor = isLight ? 'rgba(18, 18, 20, ' : 'rgba(230, 232, 236, ';
 
       const img = new Image();
@@ -690,8 +1046,6 @@
         offCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
         const imgData = offCtx.getImageData(0, 0, canvas.width, canvas.height).data;
 
-        // Multi-tier threshold grid for fine, non-linear pointillist sampling
-        // A denser step (2px) is used to resolve micro-details (collars, hair, lanyard)
         const step = 2;
         for (let y = 0; y < canvas.height; y += step) {
           for (let x = 0; x < canvas.width; x += step) {
@@ -699,28 +1053,16 @@
             const r = imgData[idx];
             const g = imgData[idx + 1];
             const b = imgData[idx + 2];
-            
-            // Standard perceptual luminance calculation
             const lum = (r * 0.299 + g * 0.587 + b * 0.114);
 
-            // Skip backdrops, but map highlights and shadows with a smooth log curve to avoid harsh clipping
             if (lum > 24) {
               const norm = Math.min(1.0, (lum - 24) / 200);
-
-              // Power-law prob curve so shadows don't drop out completely (resolves dull side)
-              // and highlights pack tightly but never merge into solid flat blooms (resolves bright side)
               const prob = Math.pow(norm, 0.6) * 0.82 + 0.15;
               if (Math.random() < prob) {
-                // Positional jitter breaks straight lines into natural pointillist patterns
                 const jx = x + (Math.random() - 0.5) * 1.5;
                 const jy = y + (Math.random() - 0.5) * 1.5;
-
-                // Restrict maximum dot size to avoid flat patches in highlight clusters (bloating)
                 const radius = Math.max(0.55, Math.min(1.4, norm * 1.05 + 0.45));
-                
-                // Mute extreme highlights and enrich shadows for a continuous tonal range
                 const alpha = Math.min(0.9, norm * 0.7 + 0.35).toFixed(2);
-                
                 particles.push(new StippleDot(jx, jy, radius, alpha, dotColor));
               }
             }
@@ -730,19 +1072,16 @@
       };
 
       img.onerror = () => {
-        console.warn("profile.jpg not found. Please place profile.jpg in your local repository.");
+        console.warn("profile.jpg not found. Please verify profile.jpg is in your folder.");
       };
     }
 
     function animate() {
-      // Background must remain fully transparent for custom integration
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
       }
-
       animationFrameId = requestAnimationFrame(animate);
     }
 
