@@ -90,8 +90,8 @@
             body {
                 background: white !important;
                 color: #000 !important;
-                font-size: 10.5pt;
-                line-height: 1.45;
+                font-size: 10pt;
+                line-height: 1.4;
             }
             .no-print {
                 display: none !important;
@@ -350,13 +350,13 @@
                         <span class="text-xs font-mono uppercase tracking-wider text-accent dark:text-accent-dark">
                             Project Lead &bull; 2017 &mdash; Present
                         </span>
-                        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener noreferrer" class="text-xs font-sans text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white inline-flex items-center gap-1 editorial-link">
-                            <span>FOPCU Research Team</span>
+                        <a href="https://mahmoudfaheem.github.io/amr-portal/" target="_blank" rel="noopener noreferrer" class="text-xs font-sans text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white inline-flex items-center gap-1 editorial-link">
+                            <span>B-LAC Registry</span>
                             <span class="text-xs">&nearr;</span>
                         </a>
                     </div>
                     <h3 class="text-xl font-serif text-ink-900 dark:text-white">
-                        Antimicrobial Resistance Gene (ARG) Database
+                        Antimicrobial Resistance Genes Database
                     </h3>
                     <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed">
                         Led a student research team to curate a comprehensive antimicrobial resistance gene database, cataloging 1,690+ resistance variants with associated amino acid substitutions and 3,380+ nucleic acid and protein sequences. Architected and deployed the system as a relational database with an interactive web interface linked to bioinformatics resources and tools, including NCBI, BLAST, and UniProt.
@@ -365,7 +365,7 @@
             </div>
         </section>
 
-        <!-- 4. TALKS & POSTERS -->
+        <!-- 4. TALKS, POSTERS, WORKSHOPS & CONFERENCES -->
         <section id="presentations" class="space-y-6 scroll-mt-20">
             <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                 <div>
@@ -375,17 +375,17 @@
                 </div>
 
                 <!-- Filter Controls -->
-                <div class="flex items-center gap-1.5 text-xs font-mono pt-1">
+                <div class="flex flex-wrap items-center gap-1.5 text-xs font-mono pt-1">
                     <button onclick="filterEntries('all')" class="filter-btn active-filter px-2.5 py-1 rounded border border-ink-300 dark:border-ink-700 bg-ink-200 dark:bg-ink-700 text-ink-900 dark:text-white" data-target="all">All</button>
                     <button onclick="filterEntries('presentation')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="presentation">Presentations</button>
-                    <button onclick="filterEntries('workshop')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="workshop">Workshops</button>
-                    <button onclick="filterEntries('symposium')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="symposium">Symposia</button>
+                    <button onclick="filterEntries('training')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="training">Courses &amp; Workshops</button>
+                    <button onclick="filterEntries('conference')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="conference">Conferences &amp; Webinars</button>
                 </div>
             </div>
 
             <div id="entriesList" class="divide-y divide-ink-200 dark:divide-ink-800 text-sm">
-                <!-- ISCB Poster -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
+                <!-- PRESENTATIONS & POSTERS -->
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Dec 2021 &bull; Poster
                     </div>
@@ -402,8 +402,7 @@
                     </div>
                 </div>
 
-                <!-- ISC-FOPCU Presentation -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Apr 2018 &bull; Oral Talk
                     </div>
@@ -420,14 +419,14 @@
                     </div>
                 </div>
 
-                <!-- Workshop: ABCO 2025 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                <!-- ADDITIONAL TRAINING & SPECIAL COURSES -->
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
                     <div class="text-xs font-mono text-ink-500 pt-1">
-                        Jul 2025 &bull; Training
+                        Jul 2025 &bull; Course
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            Machine Learning in Biomedical Research &amp; Discovering Disease Pathways from Multi-omics Data
+                            Machine Learning in Biomedical Research
                         </h3>
                         <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
                             Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt.
@@ -435,14 +434,27 @@
                     </div>
                 </div>
 
-                <!-- Workshop: BV-BRC 2024 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jul 2025 &bull; Course
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Discovering Disease Pathways from Multi-omics Data
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Apr 2024 &bull; Workshop
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            BV-BRC Viral Subspecies Classification Technical Workshop
+                            BV-BRC Viral Subspecies Classification Workshop
                         </h3>
                         <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
                             Bacterial and Viral Bioinformatics Resource Center.
@@ -450,29 +462,41 @@
                     </div>
                 </div>
 
-                <!-- Workshop: Ensembl 2023 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Jul 2023 &bull; Workshop
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            Ensembl Browser and REST API Training Modules
+                            Ensembl Browser Workshop
                         </h3>
                         <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
-                            EMBL-EBI Ensembl training curriculum.
+                            EMBL-EBI Ensembl training module.
                         </p>
                     </div>
                 </div>
 
-                <!-- Workshop: BV-BRC 2022 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
                     <div class="text-xs font-mono text-ink-500 pt-1">
-                        Nov &ndash; Dec 2022
+                        Jul 2023 &bull; Workshop
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            Microbial Genomics Analytics &amp; MicroGenome Metagenomic
+                            Ensembl REST API Workshop
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            EMBL-EBI programmatic data retrieval.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2022 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Microbial Genomics Workshop
                         </h3>
                         <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
                             BV-BRC Training Series.
@@ -480,8 +504,18 @@
                     </div>
                 </div>
 
-                <!-- Workshop: Ge-GPx 2019 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2022 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MicroGenome Microbial Genomics Workshop
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="training">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Dec 2019 &bull; Workshop
                     </div>
@@ -492,8 +526,193 @@
                     </div>
                 </div>
 
-                <!-- Symposium: Harvard Chan 2024 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                <!-- CONFERENCES & WEBINARS -->
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Mar 2026 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            The Complex Genetics of Aging and Alzheimer's Disease
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">MARC Webinar</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jan 2026 &bull; Symposium
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Life in a Phage World
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Ahram Canadian University (ACU), Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2025 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            The Human Microbiome in Health and Disease
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Future University in Egypt (FUE)</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2025 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Bioactive Molecules from the Human Microbiome
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">MARC Webinar</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jul 2025 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Arab Biobank Collaborative Network Conference (ABCO)
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Apr 2025 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MARC Webinar Series: The Remedy Within &ndash; Gut Reactions: The Gut Microbiome in Disease Onset &amp; Treatment
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2024 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Egyptian Bioinformatics Workshop &ndash; 6th Edition
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Nile University, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov &ndash; Dec 2024
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            German-Egyptian Microbiome Research Capacity Building Initiative Symposium
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">German University in Cairo (GUC), Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2024 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            5th Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (EICMMHD)
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">National Research Center, Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2024 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MARC Webinar Series: Original Antigenic Sin: Lessons Learned from the COVID-19 Pandemic
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2024 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Scientific Arab Forum (SAF) 3rd Life Science Conference
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Oct 2024 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MARC Webinar Series: Precision Microbiome Medicine: Can a 'Smart Toilet' Monitor and Improve Our Health?
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Sep 2024 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MARC Webinar Series: A Successful Story for Translational Research
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Sep 2024 &bull; Event
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Healing Hands with Global Plans
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Children’s Cancer Hospital Egypt 57357, Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Sep 2024 &bull; Symposium
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Artificial Intelligence and Scholarly Publications: Expectations, Equity, and Ethics
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Aug 2024 &bull; Webinar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            MARC Webinar Series: Monkeypox and Emerging Health Threats: Are We Better Prepared?
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         May 2024 &bull; Symposium
                     </div>
@@ -501,65 +720,205 @@
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
                             6th Harvard Chan Microbiome Center Symposium: The Microbiome and Cancer
                         </h3>
-                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
-                            Harvard T.H. Chan School of Public Health.
-                        </p>
+                        <p class="text-xs text-ink-500 font-sans">Harvard T.H. Chan School of Public Health</p>
                     </div>
                 </div>
 
-                <!-- Symposium: GUC 2024 -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
                     <div class="text-xs font-mono text-ink-500 pt-1">
-                        2024 &bull; Symposium
+                        Jan 2024 &bull; Seminar
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            German-Egyptian Microbiome Research Capacity Building Initiative Symposium
+                            Translational Research Program
                         </h3>
-                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
-                            German University in Cairo (GUC).
-                        </p>
+                        <p class="text-xs text-ink-500 font-sans">Children’s Cancer Hospital Egypt 57357, Cairo, Egypt</p>
                     </div>
                 </div>
 
-                <!-- Symposium: Nile University Series -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
                     <div class="text-xs font-mono text-ink-500 pt-1">
-                        2022 &ndash; 2024
+                        Dec 2023 &bull; Workshop
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            Egyptian Bioinformatics Workshop Series (4th, 5th, &amp; 6th Editions)
+                            Egyptian Bioinformatics Workshop &ndash; 5th Edition
                         </h3>
-                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
-                            Nile University, Egypt.
-                        </p>
+                        <p class="text-xs text-ink-500 font-sans">Nile University, Egypt</p>
                     </div>
                 </div>
 
-                <!-- Symposium: NRC Conferences -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
                     <div class="text-xs font-mono text-ink-500 pt-1">
-                        2020 &ndash; 2024
+                        Nov 2023 &bull; Conference
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
-                            Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (2nd, 4th, &amp; 5th Editions)
+                            4th Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (EICMMHD)
                         </h3>
-                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
-                            National Research Center, Cairo, Egypt.
-                        </p>
+                        <p class="text-xs text-ink-500 font-sans">National Research Center, Cairo, Egypt</p>
                     </div>
                 </div>
 
-                <!-- Symposium: Evergreen Phage -->
-                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Sep 2023 &bull; Forum
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Youth Researchers Forum
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Children’s Cancer Hospital Egypt 57357, Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        May 2023 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Technological Frontiers of Biomedical Research Conference
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Children’s Cancer Hospital Egypt 57357, Cairo, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        May 2023 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            11th Annual Ain Shams University International Conference
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Ain Shams University, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Feb 2023 &bull; Seminar
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Translational Research Seminar Series: Back to the Future
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">New Giza University, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2022 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Egyptian Bioinformatics Workshop &ndash; 4th Edition
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Nile University, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2022 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Exploring the Prehistory: Archaeobiology and Ancient DNA Conference
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">American University in Cairo (AUC), Egypt</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Oct 2022 &bull; Congress
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            9th Annual Congress of the European Society for Translational Medicine (EUSTM)
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2022 &bull; Virtual
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            2022 ISB Virtual Microbiome Series: Global Perspective in Microbiome Research
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Institute for Systems Biology (ISB)</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2021 &bull; Virtual
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            2021 ISB Virtual Microbiome Series: Cutting-Edge Microbiome Research
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Institute for Systems Biology (ISB)</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
                     <div class="text-xs font-mono text-ink-500 pt-1">
                         Aug 2021 &bull; Meeting
                     </div>
                     <div class="md:col-span-3 space-y-1">
                         <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
                             24th Biennial Evergreen International Phage Meeting
+                        </h3>
+                        <p class="text-xs text-ink-500 font-sans">Includes Annotating Phages with PATRIC workshop</p>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jul 2021 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            10th International Scientific Conference of Faculty of Pharmacy, Cairo University
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov 2020 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            2nd Egyptian International Conference on Microbiota and Microbiome in Health and Disease
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2019 &bull; Meeting
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx)
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="entry-item py-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="conference">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Apr 2018 &bull; Conference
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            9th International Scientific Conference of Faculty of Pharmacy, Cairo University
                         </h3>
                     </div>
                 </div>
@@ -911,7 +1270,7 @@
                     <li><strong>Bioinformatics &amp; Data Analysis:</strong> Metagenomic and genomic sequence analysis (FASTQ/FASTA), command-line sequence alignment and sequence data processing using Bowtie2, DIAMOND, SAMtools, BEDTools, and the NCBI SRA Toolkit.</li>
                     <li><strong>Programming &amp; Computational Tools:</strong> R (RStudio), Python, Bash scripting (Linux/Unix), and AWK; basic knowledge of SQL and PHP.</li>
                     <li><strong>Specialized Bioinformatics Resources:</strong> NCBI, PubMed, BLAST, CARD, BV-BRC, and Ensembl for sequence analysis and database searches.</li>
-                    <li><strong>Microbiology &amp; Molecular Biology Techniques:</strong> BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis.</li>
+                    <li><strong>Microbiology &amp; Molecular Biology Techniques:</strong> BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis, MCF-7 cell culture &amp; MTT assays.</li>
                 </ul>
             </div>
 
@@ -933,6 +1292,68 @@
                         <em>Oral presentation, 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University (ISC-FOPCU), Cairo, Egypt, April 2018.</em>
                     </p>
                 </div>
+            </div>
+
+            <!-- CV Section: Additional Training & Special Courses -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Additional Training &amp; Special Courses
+                </h3>
+                
+                <ul class="text-xs font-sans space-y-1 list-disc list-inside">
+                    <li>Machine Learning in Biomedical Research, Arab Biobank Collaborative Network Conference (ABCO), July 2025</li>
+                    <li>Discovering Disease Pathways from Multi-omics Data, ABCO, July 2025</li>
+                    <li>BV-BRC Viral Subspecies Classification Workshop, April 2024</li>
+                    <li>Ensembl Browser Workshop, July 2023</li>
+                    <li>Ensembl REST API Workshop, July 2023</li>
+                    <li>Microbial Genomics Workshop (BV-BRC training), Dec. 2022</li>
+                    <li>MicroGenome Microbial Genomics Workshop, Nov. 2022</li>
+                    <li>German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx) Workshop, Dec. 2019</li>
+                </ul>
+            </div>
+
+            <!-- CV Section: Conferences & Webinars -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Conferences &amp; Webinars
+                </h3>
+                
+                <ul class="text-xs font-sans space-y-1 list-disc list-inside">
+                    <li>The Complex Genetics of Aging and Alzheimer's Disease, MARC Webinar, March 2026</li>
+                    <li>Life in a Phage World, Ahram Canadian University (ACU), January 2026</li>
+                    <li>The Human Microbiome in Health and Disease, FUE, Egypt, November 2025</li>
+                    <li>Bioactive Molecules from the Human Microbiome, MARC Webinar, November 2025</li>
+                    <li>Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt, July 2025</li>
+                    <li>MARC webinar series: The remedy within–Gut Reactions: The Gut Microbiome in Disease Onset &amp; Treatment, April 2025</li>
+                    <li>Egyptian Bioinformatics Workshop &ndash; 6th edition, Nile University, Egypt, Dec. 2024</li>
+                    <li>German-Egyptian Microbiome Research Capacity Building Initiative Symposium, German University in Cairo (GUC), Egypt, Nov.–Dec. 2024</li>
+                    <li>5th Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease &ndash; EICMMHD, National Research Center, Cairo, Egypt, Nov. 2024</li>
+                    <li>MARC webinar series: The remedy within–Original Antigenic Sin: lessons learned from the COVID-19 pandemic, Nov. 2024</li>
+                    <li>Scientific Arab Forum (SAF) 3rd Life Science Conference, Nov. 2024</li>
+                    <li>MARC webinar series: The remedy within–Precision Microbiome Medicine: Can a 'Smart Toilet' Monitor and Improve Our Health?, Oct. 2024</li>
+                    <li>MARC webinar series: The remedy within–A successful story for translational research, Sep. 2024</li>
+                    <li>Healing Hands with Global Plans, Children’s Cancer Hospital Egypt 57357, Cairo, Egypt, Sep. 2024</li>
+                    <li>Artificial Intelligence and Scholarly Publications: Expectations, Equity, and Ethics, Sep. 2024</li>
+                    <li>MARC webinar series: The remedy within–Monkeypox and Emerging Health Threats: Are we Better Prepared?, Aug. 2024</li>
+                    <li>6th Harvard Chan Microbiome Center Symposium: The Microbiome and Cancer, May 2024</li>
+                    <li>Translational Research Program, Children’s Cancer Hospital Egypt 57357, Cairo, Egypt, Jan. 2024</li>
+                    <li>Egyptian Bioinformatics Workshop &ndash; 5th edition, Nile University, Egypt, Dec. 2023</li>
+                    <li>4th Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease &ndash; EICMMHD, National Research Center, Cairo, Egypt, Nov. 2023</li>
+                    <li>Youth Researchers Forum, Children’s Cancer Hospital Egypt 57357, Cairo, Egypt, Sep. 2023</li>
+                    <li>Technological Frontiers of Biomedical Research Conference, Children’s Cancer Hospital Egypt 57357, Cairo, Egypt, May 2023</li>
+                    <li>11th Annual Ain Shams University International Conference, Ain Shams University, Egypt, May 2023</li>
+                    <li>Translational Research Seminar Series: Back to the Future, New Giza University, Egypt, Feb. 2023</li>
+                    <li>Egyptian Bioinformatics Workshop &ndash; 4th edition, Nile University, Egypt, Dec. 2022</li>
+                    <li>Exploring the prehistory: Archaeobiology and Ancient DNA Conference, AUC, Egypt, Nov. 2022</li>
+                    <li>9th Annual Congress of the European Society for Translational Medicine (EUSTM), Oct. 2022</li>
+                    <li>2022 ISB Virtual Microbiome Series &ndash; Global Perspective in Microbiome Research</li>
+                    <li>2021 ISB Virtual Microbiome Series &ndash; Cutting-edge microbiome research</li>
+                    <li>24th Biennial Evergreen international Phage meeting - Annotating phages with PATRIC workshop, Aug. 2021</li>
+                    <li>10th International Scientific Conference of Faculty of Pharmacy, Cairo University, July 2021</li>
+                    <li>2nd Egyptian International Conference on Microbiota and Microbiome in health and disease, Nov. 2020</li>
+                    <li>German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx), Dec. 2019</li>
+                    <li>9th International Scientific Conference of Faculty of Pharmacy, Cairo University, April 2018</li>
+                </ul>
             </div>
 
             <!-- CV Section: Affiliations -->
