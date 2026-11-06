@@ -1,1091 +1,1163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahmoud Faheem | Bioinformatician & Microbiologist</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0b0c0e;
-      --sidebar-bg: #08090a;
-      --card-bg: #121316;
-      --card-elevated: #17191e;
-      --text-bright: #f4f4f6;
-      --text-main: #cfd6df;
-      --text-muted: #7e8794;
-      --accent-teal: #4ea8a0;
-      --accent-amber: #e5a968;
-      --border-subtle: #1c1e24;
-      --border-light: #282c36;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    [data-theme="light"] {
-      --bg: #f7f6f2;
-      --sidebar-bg: #eeeeea;
-      --card-bg: #ffffff;
-      --card-elevated: #f4f2eb;
-      --text-bright: #121214;
-      --text-main: #323238;
-      --text-muted: #72727e;
-      --accent-teal: #1e7069;
-      --accent-amber: #bd7326;
-      --border-subtle: #dedcd4;
-      --border-light: #cac5ba;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Left Sidebar Navigation */
-    .sidebar {
-      width: 140px;
-      min-width: 140px;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2.2rem 1.4rem;
-      border-right: 1px solid var(--border-subtle);
-      background-color: var(--sidebar-bg);
-      z-index: 100;
-    }
-
-    .brand-monogram {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      color: var(--accent-amber);
-      text-decoration: none;
-      border: 1.5px solid var(--accent-amber);
-      padding: 0.2rem 0.45rem;
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: 2rem;
-      border-radius: 2px;
-      transition: transform 0.2s ease;
-    }
-    .brand-monogram:hover { transform: scale(1.05); }
-
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .nav-item {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-item:hover, .nav-item.active {
-      color: var(--accent-teal);
-      font-weight: 500;
-    }
-
-    .sidebar-footer {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .theme-toggle-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-      padding: 0;
-      transition: color 0.2s;
-    }
-    .theme-toggle-btn:hover { color: var(--accent-amber); }
-
-    .lang-label {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      cursor: pointer;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-    .lang-label:hover { color: var(--text-bright); }
-
-    /* Main Content Wrapper */
-    .main-wrapper {
-      margin-left: 140px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* Main Hero Viewport */
-    .hero-section {
-      padding: 5rem 5rem 4rem 6.5rem;
-      max-width: 1400px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 92vh;
-      position: relative;
-    }
-
-    @media (max-width: 1024px) {
-      .hero-section {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 5rem 2rem 4rem 2.5rem;
-        gap: 3.5rem;
-      }
-      .sidebar {
-        width: 110px;
-        min-width: 110px;
-        padding: 1.8rem 1rem;
-      }
-      .main-wrapper {
-        margin-left: 110px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      body { flex-direction: column; }
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--border-subtle);
-        padding: 1.2rem 1.5rem;
-      }
-      .main-wrapper {
-        margin-left: 0;
-      }
-      .hero-section {
-        padding: 2.5rem 1.5rem;
-      }
-      .portrait-wrapper {
-        order: -1;
-        width: 100% !important;
-        max-width: 360px !important;
-      }
-    }
-
-    /* Left Narrative Column */
-    .narrative-col {
-      max-width: 600px;
-      z-index: 2;
-    }
-
-    .hero-name {
-      font-family: var(--font-serif);
-      font-size: 4.8rem;
-      font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      color: var(--text-bright);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-subtitle {
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      color: var(--accent-teal);
-      letter-spacing: 0.04em;
-      font-weight: 500;
-      margin-bottom: 2rem;
-    }
-
-    .hero-statement {
-      font-size: 1.12rem;
-      color: var(--text-main);
-      line-height: 1.68;
-      margin-bottom: 1.35rem;
-      font-weight: 300;
-    }
-
-    .hero-statement strong {
-      color: var(--text-bright);
-      font-weight: 500;
-    }
-
-    .links-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.6rem;
-      margin-top: 2.4rem;
-      font-size: 0.95rem;
-    }
-
-    .action-link {
-      color: var(--text-main);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: color 0.2s ease, transform 0.2s ease;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .action-link:hover {
-      color: var(--accent-amber);
-      transform: translateX(2px);
-    }
-
-    .action-link.primary {
-      color: var(--accent-teal);
-      font-weight: 500;
-    }
-
-    /* Transparent Pure Particle Canvas */
-    .portrait-wrapper {
-      width: 440px;
-      max-width: 440px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .canvas-container {
-      position: relative;
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      background: transparent;
-      cursor: crosshair;
-    }
-
-    #particle-canvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 590px;
-      background: transparent;
-    }
-
-    /* Editorial Content Sections */
-    .editorial-section {
-      padding: 4rem 5rem 4rem 6.5rem;
-      max-width: 1100px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    @media (max-width: 1024px) {
-      .editorial-section {
-        padding: 3rem 2rem 3rem 2.5rem;
-      }
-    }
-    @media (max-width: 768px) {
-      .editorial-section {
-        padding: 2.5rem 1.5rem;
-      }
-    }
-
-    .section-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent-teal);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
-
-    .section-heading {
-      font-family: var(--font-serif);
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      line-height: 1.15;
-      margin-bottom: 2rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1.5rem;
-    }
-
-    .content-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 1.8rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .content-card:hover {
-      border-color: var(--border-light);
-      transform: translateY(-2px);
-    }
-
-    .card-meta {
-      font-size: 0.82rem;
-      color: var(--accent-amber);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-bright);
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .card-body {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 1rem;
-      color: var(--accent-teal);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .card-link:hover {
-      color: var(--accent-amber);
-    }
-
-    /* Modal for CV / Bio */
-    #cv-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(8, 9, 11, 0.92);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      overflow-y: auto;
-      padding: 3rem 1.5rem;
-    }
-    #cv-modal.active { display: flex; justify-content: center; }
-
-    .cv-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      max-width: 860px;
-      width: 100%;
-      padding: 3.5rem;
-      border-radius: 6px;
-      font-family: var(--font-sans);
-      position: relative;
-      height: fit-content;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
-    }
-
-    .cv-top-bar {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .cv-btn {
-      background: transparent;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      padding: 0.45rem 1rem;
-      font-size: 0.85rem;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-    .cv-btn:hover { color: var(--accent-amber); border-color: var(--accent-amber); }
-
-    .cv-header-title {
-      font-family: var(--font-serif);
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      line-height: 1.1;
-    }
-
-    .cv-contact-row {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.6rem;
-      line-height: 1.6;
-    }
-    .cv-contact-row a {
-      color: var(--accent-teal);
-      text-decoration: none;
-    }
-    .cv-contact-row a:hover {
-      color: var(--accent-amber);
-    }
-
-    .cv-summary-box {
-      margin-top: 1.4rem;
-      padding: 1.1rem 1.3rem;
-      background: var(--card-elevated);
-      border-left: 3px solid var(--accent-teal);
-      border-radius: 3px;
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    .cv-section {
-      margin-top: 2.6rem;
-    }
-
-    .cv-section-title {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-teal);
-      border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 0.45rem;
-      margin-bottom: 1.4rem;
-      font-weight: 600;
-    }
-
-    .cv-item {
-      display: grid;
-      grid-template-columns: 125px 1fr;
-      gap: 1.2rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .cv-year {
-      color: var(--accent-amber);
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .cv-item-title {
-      color: var(--text-bright);
-      font-weight: 600;
-    }
-
-    .cv-item-sub {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .cv-bullet-list {
-      list-style-type: square;
-      margin-left: 1.1rem;
-      margin-top: 0.4rem;
-      color: var(--text-main);
-      font-size: 0.92rem;
-    }
-    .cv-bullet-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    .skills-block {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-
-    @media print {
-      body * { visibility: hidden; }
-      #cv-modal, #cv-modal * { visibility: visible; }
-      #cv-modal { position: absolute; left: 0; top: 0; background: none; padding: 0; width: 100%; }
-      .cv-card { border: none; padding: 0; max-width: 100%; color: #000; background: #fff; box-shadow: none; }
-      .cv-top-bar { display: none; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Left Sidebar Navigation -->
-  <aside class="sidebar">
-    <div>
-      <a href="#home" class="brand-monogram">MF</a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#home" class="nav-item active">home</a></li>
-          <li><a href="#bio" class="nav-item" onclick="openModal()">bio &amp; cv</a></li>
-          <li><a href="#science" class="nav-item">science</a></li>
-          <li><a href="#platforms" class="nav-item">platforms</a></li>
-          <li><a href="#talks" class="nav-item">talks</a></li>
-          <li><a href="#contact" class="nav-item">contact</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="sidebar-footer">
-      <button class="theme-toggle-btn" id="theme-btn" title="Toggle theme">◐</button>
-      <a href="#ar" class="lang-label" title="Arabic version">ع</a>
-    </div>
-  </aside>
-
-  <!-- Main Wrapper -->
-  <div class="main-wrapper">
-
-    <!-- Hero Viewport -->
-    <section class="hero-section" id="home">
-      <div class="narrative-col">
-        <h1 class="hero-name">
-          Mahmoud<br>Faheem
-        </h1>
-
-        <div class="hero-subtitle">
-          Early-career researcher | Bioinformatician | Microbiologist
-        </div>
-
-        <p class="hero-statement">
-          Early-career researcher with formal training in bioinformatics, microbial genomics, gut metagenomics, and antimicrobial resistance dynamics.
-        </p>
-
-        <p class="hero-statement">
-          I serve as a <strong>Teaching Assistant</strong> in the Department of Microbiology &amp; Immunology at <strong>Modern University for Technology &amp; Information (MTI)</strong>, and am completing my Master's at <strong>Ain Shams University</strong> focusing on microbial genomics and resistome profiling.
-        </p>
-
-        <p class="hero-statement">
-          Previously, I conducted research and laboratory instruction across <strong>Children's Cancer Hospital Egypt (57357)</strong>, <strong>October 6 University</strong>, and the <strong>Faculty of Pharmacy, Cairo University (FOPCU)</strong>.
-        </p>
-
-        <div class="links-row">
-          <a class="action-link primary" onclick="openModal()">curriculum vitae &rarr;</a>
-          <a href="#platforms" class="action-link">databases &#8599;</a>
-          <a href="#talks" class="action-link">presentations &#8599;</a>
-          <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener" class="action-link">github &#8599;</a>
-          <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link">contact &#8599;</a>
-        </div>
-      </div>
-
-      <!-- Pure Particle Canvas -->
-      <div class="portrait-wrapper">
-        <div class="canvas-container">
-          <canvas id="particle-canvas" width="440" height="589"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research & Science Section -->
-    <section class="editorial-section" id="science">
-      <div class="section-kicker">Research Focus</div>
-      <h2 class="section-heading">Microbial Genomics &amp; Resistome Profiling</h2>
-      <p style="font-size: 1.05rem; line-height: 1.7; max-width: 820px; color: var(--text-main);">
-        Investigating bacterial pathogens and resistome architectures through command-line genomic sequence analysis, metagenomic read mapping, and antimicrobial susceptibility surveillance.
-      </p>
-
-      <div class="content-grid">
-        <div class="content-card">
-          <div class="card-meta">Master's Research &bull; Ain Shams University</div>
-          <div class="card-title">Resistome Profiling &amp; Microbial Genomics</div>
-          <div class="card-body">
-            Focusing on high-throughput sequencing data analysis, resistome identification, and characterization of mobile genetic elements carrying resistance determinants.
-          </div>
-        </div>
-
-        <div class="content-card">
-          <div class="card-meta">Translational Research &bull; CCHE 57357</div>
-          <div class="card-title">Microbiology &amp; Immunology Program</div>
-          <div class="card-body">
-            Volunteer research internship examining microbial and immunological dynamics in clinical oncology settings at Children's Cancer Hospital Egypt.
-          </div>
-        </div>
-
-        <div class="content-card">
-          <div class="card-meta">Cell Biology &amp; Molecular Workshops &bull; O6U</div>
-          <div class="card-title">Cytotoxicity Kinetics &amp; Genomic Workshops</div>
-          <div class="card-body">
-            Evaluated MCF-7 breast cancer cell line viability kinetics (MTT, Trypan blue, hemocytometer) and delivered 10 eukaryotic DNA extraction and gel analysis workshops.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Platforms & Databases Section -->
-    <section class="editorial-section" id="platforms">
-      <div class="section-kicker">Scientific Infrastructure</div>
-      <h2 class="section-heading">Databases &amp; Open Computational Platforms</h2>
-      
-      <div class="content-grid">
-        <div class="content-card">
-          <div class="card-meta">Lead Developer &amp; Curator &bull; 2020 &ndash; Present</div>
-          <div class="card-title">COCTAIL Hub Project</div>
-          <div class="card-body">
-            Evidence-based literature repository mapping over 1,900 PubMed-indexed COVID-19 clinical and epidemiological trials. Hosted as an official institutional resource on the FOPCU portal.
-          </div>
-          <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener" class="card-link">Explore COCTAIL Hub &rarr;</a>
-        </div>
-
-        <div class="content-card">
-          <div class="card-meta">Project Lead &bull; 2017 &ndash; Present</div>
-          <div class="card-title">Antimicrobial Resistance Genes (ARG) Portal</div>
-          <div class="card-body">
-            Relational database cataloging 1,690+ resistance gene variants, Ambler coordinates, and 3,380+ nucleotide/protein sequences linked to NCBI, BLAST, and UniProt.
-          </div>
-          <a href="https://github.com/MahmoudFaheem/amr-portal" target="_blank" rel="noopener" class="card-link">Explore ARG Portal &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Posters & Presentations Section -->
-    <section class="editorial-section" id="talks">
-      <div class="section-kicker">Scholarship</div>
-      <h2 class="section-heading">Posters &amp; Conference Presentations</h2>
-
-      <div class="content-grid">
-        <div class="content-card">
-          <div class="card-meta">ISCB Conference &bull; Colorado, USA (Dec 2021)</div>
-          <div class="card-title">Text Mining &mdash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</div>
-          <div class="card-body">
-            Prof. Ramy K. Aziz (presenting author), Mahmoud Faheem, Shaimaa Hegazy. Poster presented at the International Society for Computational Biology.
-          </div>
-        </div>
-
-        <div class="content-card">
-          <div class="card-meta">9th ISC-FOPCU &bull; Cairo, Egypt (Apr 2018)</div>
-          <div class="card-title">Database of Antimicrobial Resistance Genes: Modeling and Predicting the Resistome</div>
-          <div class="card-body">
-            Shaimaa Hegazy, Mahmoud Faheem. Oral presentation delivered at the 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="editorial-section" id="contact" style="margin-bottom: 4rem;">
-      <div class="section-kicker">Get in Touch</div>
-      <h2 class="section-heading">Connect &amp; Collaborate</h2>
-      <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 2rem; max-width: 600px;">
-        Open to research collaborations, computational metagenomics consulting, and academic discussions in microbial genomics and antimicrobial resistance.
-      </p>
-
-      <div class="links-row" style="margin-top: 0;">
-        <a href="mailto:mahmoudfm.faheem@gmail.com" class="action-link primary">mahmoudfm.faheem@gmail.com &#8599;</a>
-        <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener" class="action-link">linkedin &#8599;</a>
-        <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener" class="action-link">twitter / x &#8599;</a>
-        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener" class="action-link">github &#8599;</a>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Full Academic CV / Bio Modal -->
-  <div id="cv-modal" onclick="if(event.target === this) closeModal()">
-    <div class="cv-card">
-      <div class="cv-top-bar">
-        <button class="cv-btn" onclick="window.print()">Print / Save PDF</button>
-        <button class="cv-btn" onclick="closeModal()">Close &times;</button>
-      </div>
-
-      <div>
-        <h2 class="cv-header-title">Mahmoud Faheem Mohamed Faheem</h2>
-        <div class="cv-contact-row">
-          Email: <a href="mailto:mahmoudfm.faheem@gmail.com">mahmoudfm.faheem@gmail.com</a> &bull; Phone: +20 111 785 0777 &bull; Cairo, Egypt<br>
-          LinkedIn: <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener">linkedin.com/in/mahmoudfaheem</a> &bull; Twitter/X: <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener">@faheemmfm</a> &bull; GitHub: <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener">github.com/MahmoudFaheem</a>
-        </div>
-
-        <div class="cv-summary-box">
-          <strong>Professional Summary:</strong> Early-career researcher with training in bioinformatics, microbial genomics, metagenomics, and antimicrobial resistance analysis.
-        </div>
-      </div>
-
-      <!-- Research & Professional Experience -->
-      <div class="cv-section">
-        <div class="cv-section-title">Research &amp; Professional Experience</div>
-        
-        <div class="cv-item">
-          <div class="cv-year">2023 &ndash; Present</div>
-          <div>
-            <div class="cv-item-title">Teaching Assistant</div>
-            <div class="cv-item-sub">Modern University for Technology &amp; Information (MTI) &mdash; Faculty of Pharmacy</div>
-            <ul class="cv-bullet-list">
-              <li>Teaching undergraduate laboratory tutorials and delivering technical mentorship in fundamental microbiology and immunology.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2023 &ndash; 2024</div>
-          <div>
-            <div class="cv-item-title">Research Intern (Volunteer)</div>
-            <div class="cv-item-sub">Children's Cancer Hospital Egypt 57357 (CCHE)</div>
-            <ul class="cv-bullet-list">
-              <li>Volunteer research intern at the Microbiology and Immunology Research Program.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2020 &ndash; 2022</div>
-          <div>
-            <div class="cv-item-title">Teaching Assistant &amp; Research Assistant</div>
-            <div class="cv-item-sub">October 6 University</div>
-            <ul class="cv-bullet-list">
-              <li>Supervised undergraduate laboratory cohorts across microbiology and immunology curricula.</li>
-              <li>Designed and delivered 10 interactive workshops focused on eukaryotic DNA isolation strategies and downstream agarose gel electrophoresis analysis (Biotechnology Unit).</li>
-              <li>Participated in a cytotoxicity study evaluating MCF-7 breast cancer cell line kinetics; performed cell viability assays using hemocytometer, Trypan blue exclusion, and MTT colorimetric assays (Cell Culture Unit).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2020 &ndash; Present</div>
-          <div>
-            <div class="cv-item-title">Database Developer &amp; Lead Curation</div>
-            <div class="cv-item-sub">COCTAIL Hub Project &mdash; <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener" style="color: var(--accent-teal);">host-pathogen.net/covid/coctail.html</a></div>
-            <ul class="cv-bullet-list">
-              <li>Developed and actively maintained an evidence-based literature repository mapping over 1,900 PubMed-indexed COVID-19 clinical and epidemiological trials.</li>
-              <li>Hosted on the Faculty of Pharmacy, Cairo University website as an official institutional resource on the COVID-19 pandemic.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2017 &ndash; Present</div>
-          <div>
-            <div class="cv-item-title">Project Lead &mdash; (Ex)-Student Research Team</div>
-            <div class="cv-item-sub">Faculty of Pharmacy, Cairo University (FOPCU)</div>
-            <ul class="cv-bullet-list">
-              <li>Led a student research team to curate a comprehensive antimicrobial resistance gene database, cataloging 1,690+ resistance variants with associated amino acid substitutions and 3,380+ nucleic acid and protein sequences.</li>
-              <li>Architected and deployed the system as a relational database with an interactive web interface linked to bioinformatics resources and tools, including NCBI, BLAST, and UniProt.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">Summer 2017</div>
-          <div>
-            <div class="cv-item-title">Research Intern</div>
-            <div class="cv-item-sub">Faculty of Pharmacy, Cairo University (FOPCU)</div>
-            <ul class="cv-bullet-list">
-              <li>Department of Microbiology and Immunology: performed in silico and wet-lab experiments on <em>Acinetobacter baumannii</em> strains as part of a research project evaluating a six-month treatment regimen.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="cv-section">
-        <div class="cv-section-title">Education</div>
-        
-        <div class="cv-item">
-          <div class="cv-year">2021 &ndash; Present</div>
-          <div>
-            <div class="cv-item-title">MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology)</div>
-            <div class="cv-item-sub">Ain Shams University &mdash; Faculty of Pharmacy</div>
-            <ul class="cv-bullet-list">
-              <li>Core coursework completed; currently working on master's project focused on microbial genomics and resistome profiling.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2020 &ndash; 2021</div>
-          <div>
-            <div class="cv-item-title">Postgraduate Diploma in Genomics &amp; Bioinformatics</div>
-            <div class="cv-item-sub">Cairo University, Faculty of Pharmacy (FOPCU)</div>
-            <ul class="cv-bullet-list">
-              <li>Advanced training in genomics, multi-omics, high-throughput sequencing data analysis, R, Python, and Linux.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">2013 &ndash; 2018</div>
-          <div>
-            <div class="cv-item-title">Bachelor of Pharmacy (Clinical Pharmacy)</div>
-            <div class="cv-item-sub">Cairo University, Faculty of Pharmacy (FOPCU)</div>
-            <ul class="cv-bullet-list">
-              <li>Five-year professional degree covering pharmaceutical sciences, pharmacotherapy, pharmaceutical microbiology, and infectious diseases.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Technical Skills -->
-      <div class="cv-section">
-        <div class="cv-section-title">Technical Skills</div>
-        <div class="skills-block">
-          <div>
-            <strong style="color: var(--text-bright);">Bioinformatics &amp; Data Analysis:</strong> Metagenomic and genomic sequence analysis (FASTQ/FASTA), including command-line sequence alignment and sequence data processing using Bowtie2, DIAMOND, SAMtools, BEDTools, and the NCBI SRA Toolkit.
-          </div>
-          <div>
-            <strong style="color: var(--text-bright);">Programming &amp; Computational Tools:</strong> R (RStudio), Python, Bash scripting (Linux/Unix), and AWK; basic knowledge of SQL and PHP.
-          </div>
-          <div>
-            <strong style="color: var(--text-bright);">Specialized Bioinformatics Resources:</strong> NCBI, PubMed, BLAST, CARD, BV-BRC, and Ensembl for sequence analysis and database searches.
-          </div>
-          <div>
-            <strong style="color: var(--text-bright);">Microbiology &amp; Molecular Biology Techniques:</strong> BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis.
-          </div>
-        </div>
-      </div>
-
-      <!-- Posters & Presentations -->
-      <div class="cv-section">
-        <div class="cv-section-title">Posters &amp; Presentations</div>
-        
-        <div class="cv-item">
-          <div class="cv-year">Dec 2021</div>
-          <div>
-            <div class="cv-item-title">Text Mining &mdash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</div>
-            <div class="cv-item-sub">Prof. Ramy K. Aziz (presenting author), Mahmoud Faheem, Shaimaa Hegazy</div>
-            <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">
-              Poster, International Society for Computational Biology (ISCB) Conference, Colorado, USA.
-            </div>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-year">Apr 2018</div>
-          <div>
-            <div class="cv-item-title">Database of Antimicrobial Resistance Genes: Modeling and Predicting the Resistome</div>
-            <div class="cv-item-sub">Presenting members: Shaimaa Hegazy, Mahmoud Faheem</div>
-            <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">
-              Oral presentation, 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University (ISC-FOPCU), Cairo, Egypt.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Selected Workshops & Advanced Training -->
-      <div class="cv-section">
-        <div class="cv-section-title">Selected Workshops &amp; Advanced Training</div>
-        <ul class="cv-bullet-list" style="margin-left: 1.2rem;">
-          <li><strong>Machine Learning in Biomedical Research &amp; Discovering Disease Pathways from Multi-omics Data</strong> &mdash; Arab Biobank Collaborative Network Conference (ABCO), July 2025.</li>
-          <li><strong>BV-BRC Viral Subspecies Classification Technical Workshop</strong>, April 2024.</li>
-          <li><strong>Ensembl Browser and REST API Training Modules</strong>, July 2023.</li>
-          <li><strong>Microbial Genomics Analytics &amp; MicroGenome Metagenomic</strong> (BV-BRC Training), Nov.&ndash;Dec. 2022.</li>
-          <li><strong>German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx) Workshop</strong>, Dec. 2019.</li>
-        </ul>
-      </div>
-
-      <!-- Selected Conferences & Symposia -->
-      <div class="cv-section">
-        <div class="cv-section-title">Selected Conferences &amp; Symposia (25+ Professional Events)</div>
-        <ul class="cv-bullet-list" style="margin-left: 1.2rem;">
-          <li>MARC Webinar Series (2024&ndash;2026).</li>
-          <li>Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt (July 2025).</li>
-          <li>6th Harvard Chan Microbiome Center Symposium: The Microbiome and Cancer (May 2024).</li>
-          <li>German-Egyptian Microbiome Research Capacity Building Initiative Symposium, German University in Cairo (GUC, 2024).</li>
-          <li>Egyptian Bioinformatics Workshop Series (4th, 5th, &amp; 6th Editions), Nile University, Egypt (2022&ndash;2024).</li>
-          <li>Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (2nd, 4th, &amp; 5th Editions), National Research Center, Cairo, Egypt (2020&ndash;2024).</li>
-          <li>24th Biennial Evergreen International Phage Meeting (August 2021).</li>
-        </ul>
-      </div>
-
-      <!-- Professional Affiliations -->
-      <div class="cv-section" style="margin-bottom: 0;">
-        <div class="cv-section-title">Professional Affiliations</div>
-        <div style="font-size: 0.95rem; color: var(--text-main);">
-          <strong>Membership:</strong> Applied Microbiology International (AMI)
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    // Theme toggle
-    const themeBtn = document.getElementById('theme-btn');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    if (currentTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-
-    themeBtn.addEventListener('click', () => {
-      const active = document.documentElement.getAttribute('data-theme');
-      const next = active === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      initParticles();
-    });
-
-    // Modal controls
-    function openModal() {
-      document.getElementById('cv-modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('cv-modal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Pure Pointillist Particle Assembly Engine
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationFrameId = null;
-    let mouse = { x: -1000, y: -1000, radius: 55 };
-
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-      mouse.x = (e.clientX - rect.left) * scaleX;
-      mouse.y = (e.clientY - rect.top) * scaleY;
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    });
-
-    class StippleDot {
-      constructor(originX, originY, radius, alpha, dotColor) {
-        this.originX = originX;
-        this.originY = originY;
-
-        const angle = Math.random() * Math.PI * 2;
-        const dist = Math.random() * 260 + 100;
-        this.x = originX + Math.cos(angle) * dist;
-        this.y = originY + Math.sin(angle) * dist;
-
-        this.vx = (Math.random() - 0.5) * 6;
-        this.vy = (Math.random() - 0.5) * 6;
-        this.ease = Math.random() * 0.038 + 0.033;
-        this.friction = 0.88;
-        this.radius = radius;
-        this.alpha = alpha;
-        this.dotColor = dotColor;
-      }
-
-      update() {
-        const dx = this.originX - this.x;
-        const dy = this.originY - this.y;
-
-        this.vx += dx * this.ease;
-        this.vy += dy * this.ease;
-        this.vx *= this.friction;
-        this.vy *= this.friction;
-
-        const mx = this.x - mouse.x;
-        const my = this.y - mouse.y;
-        const distToMouse = Math.hypot(mx, my);
-        if (distToMouse < mouse.radius) {
-          const force = (mouse.radius - distToMouse) / mouse.radius;
-          const angle = Math.atan2(my, mx);
-          this.vx += Math.cos(angle) * force * 13;
-          this.vy += Math.sin(angle) * force * 13;
-        }
-
-        this.x += this.vx;
-        this.y += this.vy;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${this.dotColor}${this.alpha})`;
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      particles = [];
-
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const dotColor = isLight ? 'rgba(18, 18, 20, ' : 'rgba(230, 232, 236, ';
-
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = "profile.jpg";
-
-      img.onload = () => {
-        const offCanvas = document.createElement('canvas');
-        const offCtx = offCanvas.getContext('2d');
-        offCanvas.width = canvas.width;
-        offCanvas.height = canvas.height;
-
-        offCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        const imgData = offCtx.getImageData(0, 0, canvas.width, canvas.height).data;
-
-        const step = 2;
-        for (let y = 0; y < canvas.height; y += step) {
-          for (let x = 0; x < canvas.width; x += step) {
-            const idx = (y * canvas.width + x) * 4;
-            const r = imgData[idx];
-            const g = imgData[idx + 1];
-            const b = imgData[idx + 2];
-            const lum = (r * 0.299 + g * 0.587 + b * 0.114);
-
-            if (lum > 24) {
-              const norm = Math.min(1.0, (lum - 24) / 200);
-              const prob = Math.pow(norm, 0.6) * 0.82 + 0.15;
-              if (Math.random() < prob) {
-                const jx = x + (Math.random() - 0.5) * 1.5;
-                const jy = y + (Math.random() - 0.5) * 1.5;
-                const radius = Math.max(0.55, Math.min(1.4, norm * 1.05 + 0.45));
-                const alpha = Math.min(0.9, norm * 0.7 + 0.35).toFixed(2);
-                particles.push(new StippleDot(jx, jy, radius, alpha, dotColor));
-              }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud Faheem | Researcher in Microbial Genomics & Bioinformatics</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        warmbg: '#faf9f6',
+                        warmcard: '#ffffff',
+                        darkbg: '#0f1115',
+                        darkcard: '#16181d',
+                        ink: {
+                            900: '#151618',
+                            800: '#26282c',
+                            700: '#3e4147',
+                            600: '#5c6068',
+                            500: '#7c818c',
+                            400: '#9fa4b0',
+                            300: '#c5c9d3',
+                            200: '#e2e5eb',
+                            100: '#f0f2f6',
+                            50: '#f8f9fa',
+                        },
+                        accent: {
+                            DEFAULT: '#2a5b64',
+                            hover: '#1e4249',
+                            light: '#eaf2f4',
+                            dark: '#6aa8b4'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Newsreader"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace']
+                    }
+                }
             }
-          }
         }
-        animate();
-      };
+    </script>
 
-      img.onerror = () => {
-        console.warn("profile.jpg not found. Please verify profile.jpg is in your folder.");
-      };
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-      }
-      animationFrameId = requestAnimationFrame(animate);
-    }
+    <style>
+        ::selection {
+            background-color: #2a5b64;
+            color: #ffffff;
+        }
+        .editorial-link {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            text-decoration-color: #9fa4b0;
+            transition: all 0.2s ease;
+        }
+        .editorial-link:hover {
+            text-decoration-color: #151618;
+            color: #151618;
+        }
+        .dark .editorial-link {
+            text-decoration-color: #5c6068;
+        }
+        .dark .editorial-link:hover {
+            text-decoration-color: #f0f2f6;
+            color: #f0f2f6;
+        }
 
-    window.addEventListener('DOMContentLoaded', initParticles);
-  </script>
+        #particle-canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            background: transparent;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: #000 !important;
+                font-size: 10.5pt;
+                line-height: 1.45;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #cv-modal {
+                position: static !important;
+                display: block !important;
+                background: transparent !important;
+                padding: 0 !important;
+                overflow: visible !important;
+            }
+            #cv-modal-content {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                background: transparent !important;
+                color: #000 !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-warmbg text-ink-800 dark:bg-darkbg dark:text-ink-200 font-sans antialiased transition-colors duration-300">
+
+    <!-- TOP MINIMALIST NAV BAR -->
+    <header class="no-print sticky top-0 z-40 bg-warmbg/90 dark:bg-darkbg/90 backdrop-blur-md border-b border-ink-200/60 dark:border-ink-800/60 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#about" class="text-base font-serif font-medium tracking-tight text-ink-900 dark:text-ink-50 hover:opacity-80 transition-opacity">
+                Mahmoud Faheem
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-xs uppercase tracking-widest text-ink-600 dark:text-ink-400 font-medium">
+                <a href="#about" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Bio</a>
+                <a href="#experience" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Databases</a>
+                <a href="#presentations" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Presentations</a>
+                <a href="#skills" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Skills</a>
+                <a href="#education" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Education</a>
+                <a href="#contact" class="hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" aria-label="Toggle theme" class="p-2 text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-ink-100 rounded-full hover:bg-ink-100 dark:hover:bg-ink-800 transition">
+                    <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" aria-label="Open mobile menu" class="md:hidden p-2 text-ink-800 dark:text-ink-200">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden px-6 pt-2 pb-6 border-b border-ink-200 dark:border-ink-800 bg-warmbg dark:bg-darkbg text-sm space-y-3 font-serif">
+            <a href="#about" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Bio</a>
+            <a href="#experience" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Experience</a>
+            <a href="#projects" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Databases</a>
+            <a href="#presentations" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Presentations</a>
+            <a href="#skills" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Skills</a>
+            <a href="#education" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Education</a>
+            <a href="#contact" class="mobile-link block py-1 text-ink-700 dark:text-ink-300">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN EDITORIAL CONTAINER -->
+    <main class="max-w-4xl mx-auto px-6 py-12 sm:py-16 space-y-20 sm:space-y-28">
+
+        <!-- 1. BIO / HERO SECTION -->
+        <section id="about" class="pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+                <div class="md:col-span-7 space-y-5">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-[0.2em] font-mono text-ink-500 dark:text-ink-400 block">
+                            Researcher &bull; Cairo, Egypt
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl font-serif font-normal text-ink-900 dark:text-ink-50 tracking-tight leading-[1.1]">
+                            Mahmoud Faheem
+                        </h1>
+                        <p class="text-base sm:text-lg font-serif italic text-accent dark:text-accent-dark">
+                            Early-career researcher | Bioinformatician | Microbiologist
+                        </p>
+                    </div>
+
+                    <!-- Authentic Bio Body -->
+                    <div class="space-y-4 text-base sm:text-[1.05rem] leading-relaxed text-ink-800 dark:text-ink-200 font-serif">
+                        <p>
+                            Early-career researcher with formal training in bioinformatics, microbial genomics, metagenomics, and antimicrobial resistance analysis.
+                        </p>
+                        <p>
+                            Currently serving as a Teaching Assistant in the Department of Microbiology &amp; Immunology at the Modern University for Technology &amp; Information (MTI), while pursuing an MSc in Pharmaceutical Sciences at Ain Shams University focused on microbial genomics and resistome profiling.
+                        </p>
+                        <p>
+                            My background combines command-line sequence analysis and public-health database development with practical laboratory work across Children's Cancer Hospital Egypt (57357), October 6 University, and the Faculty of Pharmacy, Cairo University (FOPCU).
+                        </p>
+                    </div>
+
+                    <!-- Links Row -->
+                    <div class="flex flex-wrap items-center gap-5 pt-2 text-sm font-sans">
+                        <button onclick="openCvModal()" class="inline-flex items-center gap-1.5 text-ink-900 dark:text-ink-100 font-medium editorial-link">
+                            <span>View / Print CV</span>
+                            <span class="text-xs font-mono">&nearr;</span>
+                        </button>
+                        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white editorial-link">
+                            <span>GitHub</span>
+                            <span class="text-xs font-mono">&nearr;</span>
+                        </a>
+                        <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white editorial-link">
+                            <span>LinkedIn</span>
+                            <span class="text-xs font-mono">&nearr;</span>
+                        </a>
+                        <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white editorial-link">
+                            <span>X</span>
+                            <span class="text-xs font-mono">&nearr;</span>
+                        </a>
+                        <a href="#contact" class="inline-flex items-center gap-1 text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white editorial-link">
+                            <span>Contact &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Particle Stipple Canvas Column -->
+                <div class="md:col-span-5 flex flex-col items-center justify-center">
+                    <div class="relative w-full max-w-[340px] rounded overflow-hidden">
+                        <canvas id="particle-canvas" width="440" height="589"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. RESEARCH & PROFESSIONAL EXPERIENCE -->
+        <section id="experience" class="space-y-8 scroll-mt-20">
+            <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex items-baseline justify-between">
+                <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                    Research &amp; Professional Experience
+                </h2>
+                <span class="text-xs font-mono text-ink-500 uppercase tracking-widest">Chronology</span>
+            </div>
+
+            <div class="space-y-10">
+                <!-- MTI -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2023 &mdash; Present
+                    </div>
+                    <div class="md:col-span-3 space-y-1.5">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Teaching Assistant &bull; Modern University for Technology &amp; Information (MTI)
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Faculty of Pharmacy &bull; Cairo, Egypt
+                        </div>
+                        <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Teaching undergraduate laboratory tutorials and delivering technical mentorship in fundamental microbiology and immunology within the Faculty of Pharmacy.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- CCHE 57357 -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2023 &mdash; 2024
+                    </div>
+                    <div class="md:col-span-3 space-y-1.5">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Research Intern (Volunteer) &bull; Children's Cancer Hospital Egypt 57357 (CCHE)
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Microbiology and Immunology Research Program &bull; Cairo, Egypt
+                        </div>
+                        <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Volunteer research intern participating in clinical and translational microbiology research projects.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- October 6 University -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2020 &mdash; 2022
+                    </div>
+                    <div class="md:col-span-3 space-y-1.5">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Teaching Assistant &amp; Research Assistant &bull; October 6 University
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Faculty of Pharmacy &bull; Giza, Egypt
+                        </div>
+                        <ul class="list-disc list-inside text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 space-y-1 pt-1 leading-relaxed">
+                            <li>Supervised undergraduate laboratory cohorts across microbiology and immunology curricula.</li>
+                            <li>Designed and delivered 10 interactive workshops focused on eukaryotic DNA isolation strategies and downstream agarose gel electrophoresis analysis (Biotechnology Unit).</li>
+                            <li>Participated in a cytotoxicity study evaluating MCF-7 breast cancer cell line kinetics; performing cell viability assays using hemocytometer, Trypan blue exclusion, and MTT colorimetric assays (Cell Culture Unit).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- FOPCU Summer 2017 -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Summer 2017
+                    </div>
+                    <div class="md:col-span-3 space-y-1.5">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Research Intern &bull; Faculty of Pharmacy, Cairo University (FOPCU)
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Department of Microbiology and Immunology &bull; Cairo, Egypt
+                        </div>
+                        <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Conducted both in silico and wet-lab experiments on <em>Acinetobacter baumannii</em> strains, as part of a research project evaluating a six-month treatment regimen.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. DATABASES & PLATFORMS -->
+        <section id="projects" class="space-y-8 scroll-mt-20">
+            <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex items-baseline justify-between">
+                <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                    Databases &amp; Scientific Platforms
+                </h2>
+                <span class="text-xs font-mono text-ink-500 uppercase tracking-widest">Informatics</span>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8">
+                <!-- COCTAIL Hub -->
+                <div class="border border-ink-200 dark:border-ink-800 p-6 sm:p-7 rounded bg-warmcard dark:bg-darkcard space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-accent dark:text-accent-dark">
+                            Database Developer &amp; Lead Curation &bull; 2020 &mdash; Present
+                        </span>
+                        <a href="https://host-pathogen.net/covid/coctail.html" target="_blank" rel="noopener noreferrer" class="text-xs font-sans text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white inline-flex items-center gap-1 editorial-link">
+                            <span>host-pathogen.net/covid/coctail.html</span>
+                            <span class="text-xs">&nearr;</span>
+                        </a>
+                    </div>
+                    <h3 class="text-xl font-serif text-ink-900 dark:text-white">
+                        COCTAIL Hub Project
+                    </h3>
+                    <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed">
+                        Developed and actively maintained an evidence-based literature repository mapping over 1,900 PubMed-indexed COVID-19 clinical and epidemiological trials. Hosted on the Faculty of Pharmacy, Cairo University website as an official institutional resource on the COVID-19 pandemic.
+                    </p>
+                </div>
+
+                <!-- ARG Database -->
+                <div class="border border-ink-200 dark:border-ink-800 p-6 sm:p-7 rounded bg-warmcard dark:bg-darkcard space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-accent dark:text-accent-dark">
+                            Project Lead &bull; 2017 &mdash; Present
+                        </span>
+                        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener noreferrer" class="text-xs font-sans text-ink-700 dark:text-ink-300 hover:text-ink-900 dark:hover:text-white inline-flex items-center gap-1 editorial-link">
+                            <span>FOPCU Research Team</span>
+                            <span class="text-xs">&nearr;</span>
+                        </a>
+                    </div>
+                    <h3 class="text-xl font-serif text-ink-900 dark:text-white">
+                        Antimicrobial Resistance Gene (ARG) Database
+                    </h3>
+                    <p class="text-sm sm:text-base font-serif text-ink-700 dark:text-ink-300 leading-relaxed">
+                        Led a student research team to curate a comprehensive antimicrobial resistance gene database, cataloging 1,690+ resistance variants with associated amino acid substitutions and 3,380+ nucleic acid and protein sequences. Architected and deployed the system as a relational database with an interactive web interface linked to bioinformatics resources and tools, including NCBI, BLAST, and UniProt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TALKS & POSTERS -->
+        <section id="presentations" class="space-y-6 scroll-mt-20">
+            <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                        Posters, Presentations &amp; Symposia
+                    </h2>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="flex items-center gap-1.5 text-xs font-mono pt-1">
+                    <button onclick="filterEntries('all')" class="filter-btn active-filter px-2.5 py-1 rounded border border-ink-300 dark:border-ink-700 bg-ink-200 dark:bg-ink-700 text-ink-900 dark:text-white" data-target="all">All</button>
+                    <button onclick="filterEntries('presentation')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="presentation">Presentations</button>
+                    <button onclick="filterEntries('workshop')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="workshop">Workshops</button>
+                    <button onclick="filterEntries('symposium')" class="filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400" data-target="symposium">Symposia</button>
+                </div>
+            </div>
+
+            <div id="entriesList" class="divide-y divide-ink-200 dark:divide-ink-800 text-sm">
+                <!-- ISCB Poster -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2021 &bull; Poster
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Text Mining &ndash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub
+                        </h3>
+                        <p class="text-xs text-ink-600 dark:text-ink-400 font-sans">
+                            Prof. Ramy K. Aziz (presenting author), <strong>Mahmoud Faheem</strong>, Shaimaa Hegazy
+                        </p>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Poster, International Society for Computational Biology (ISCB) Conference, Colorado, USA.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ISC-FOPCU Presentation -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="presentation">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Apr 2018 &bull; Oral Talk
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Database of antimicrobial resistance genes: Modeling and predicting the resistome
+                        </h3>
+                        <p class="text-xs text-ink-600 dark:text-ink-400 font-sans">
+                            Presenting members: Shaimaa Hegazy, <strong>Mahmoud Faheem</strong>
+                        </p>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Oral presentation, 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University (ISC-FOPCU), Cairo, Egypt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workshop: ABCO 2025 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jul 2025 &bull; Training
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Machine Learning in Biomedical Research &amp; Discovering Disease Pathways from Multi-omics Data
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Arab Biobank Collaborative Network Conference (ABCO), Cairo, Egypt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workshop: BV-BRC 2024 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Apr 2024 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            BV-BRC Viral Subspecies Classification Technical Workshop
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Bacterial and Viral Bioinformatics Resource Center.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workshop: Ensembl 2023 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Jul 2023 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Ensembl Browser and REST API Training Modules
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            EMBL-EBI Ensembl training curriculum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workshop: BV-BRC 2022 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Nov &ndash; Dec 2022
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Microbial Genomics Analytics &amp; MicroGenome Metagenomic
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            BV-BRC Training Series.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workshop: Ge-GPx 2019 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="workshop">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Dec 2019 &bull; Workshop
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            German-Egyptian Network for Genomic Medicine and Population Health (Ge-GPx) Workshop
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Symposium: Harvard Chan 2024 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        May 2024 &bull; Symposium
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            6th Harvard Chan Microbiome Center Symposium: The Microbiome and Cancer
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Harvard T.H. Chan School of Public Health.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Symposium: GUC 2024 -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2024 &bull; Symposium
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            German-Egyptian Microbiome Research Capacity Building Initiative Symposium
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            German University in Cairo (GUC).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Symposium: Nile University Series -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2022 &ndash; 2024
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Egyptian Bioinformatics Workshop Series (4th, 5th, &amp; 6th Editions)
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            Nile University, Egypt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Symposium: NRC Conferences -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2020 &ndash; 2024
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            Egyptian International Conference on Microbiota &amp; Microbiome in Health and Disease (2nd, 4th, &amp; 5th Editions)
+                        </h3>
+                        <p class="text-xs sm:text-sm font-serif text-ink-700 dark:text-ink-300">
+                            National Research Center, Cairo, Egypt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Symposium: Evergreen Phage -->
+                <div class="entry-item py-5 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8" data-category="symposium">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        Aug 2021 &bull; Meeting
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-white">
+                            24th Biennial Evergreen International Phage Meeting
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TECHNICAL SKILLS -->
+        <section id="skills" class="space-y-8 scroll-mt-20">
+            <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex items-baseline justify-between">
+                <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                    Technical Skills
+                </h2>
+                <span class="text-xs font-mono text-ink-500 uppercase tracking-widest">Toolkit</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm font-serif">
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-sans text-xs uppercase font-semibold tracking-wider text-accent dark:text-accent-dark mb-1">
+                            Bioinformatics &amp; Data Analysis
+                        </h3>
+                        <p class="text-ink-700 dark:text-ink-300 leading-relaxed">
+                            Metagenomic and genomic sequence analysis (FASTQ/FASTA), command-line sequence alignment, and data processing using Bowtie2, DIAMOND, SAMtools, BEDTools, and the NCBI SRA Toolkit.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-sans text-xs uppercase font-semibold tracking-wider text-accent dark:text-accent-dark mb-1">
+                            Programming &amp; Computational Tools
+                        </h3>
+                        <p class="text-ink-700 dark:text-ink-300 leading-relaxed">
+                            R (RStudio), Python, Bash scripting (Linux/Unix), and AWK; basic knowledge of SQL and PHP.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-sans text-xs uppercase font-semibold tracking-wider text-accent dark:text-accent-dark mb-1">
+                            Specialized Bioinformatics Resources
+                        </h3>
+                        <p class="text-ink-700 dark:text-ink-300 leading-relaxed">
+                            NCBI, PubMed, BLAST, CARD, BV-BRC, and Ensembl for sequence analysis and database searches.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-sans text-xs uppercase font-semibold tracking-wider text-accent dark:text-accent-dark mb-1">
+                            Microbiology &amp; Molecular Techniques
+                        </h3>
+                        <p class="text-ink-700 dark:text-ink-300 leading-relaxed">
+                            BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis, and MCF-7 cell culture &amp; viability assays.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. EDUCATION -->
+        <section id="education" class="space-y-8 scroll-mt-20">
+            <div class="border-b border-ink-200 dark:border-ink-800 pb-3 flex items-baseline justify-between">
+                <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                    Education
+                </h2>
+                <button onclick="openCvModal()" class="text-xs font-mono text-accent dark:text-accent-dark hover:underline inline-flex items-center gap-1">
+                    <span>Full Curriculum Vitae</span>
+                    <span>&nearr;</span>
+                </button>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Master's -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2021 &mdash; Present
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology)
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Ain Shams University &bull; Faculty of Pharmacy
+                        </div>
+                        <p class="text-sm font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Core coursework completed; currently working on master's project focused on microbial genomics and resistome profiling.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Diploma -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2020 &mdash; 2021
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Postgraduate Diploma in Genomics &amp; Bioinformatics
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Cairo University, Faculty of Pharmacy (FOPCU)
+                        </div>
+                        <p class="text-sm font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Advanced training in genomics, multi-omics, high-throughput sequencing data analysis, R, Python, and Linux.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Bachelor -->
+                <article class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8">
+                    <div class="text-xs font-mono text-ink-500 pt-1">
+                        2013 &mdash; 2018
+                    </div>
+                    <div class="md:col-span-3 space-y-1">
+                        <h3 class="text-base font-serif font-medium text-ink-900 dark:text-ink-100">
+                            Bachelor of Pharmacy (Clinical Pharmacy)
+                        </h3>
+                        <div class="text-xs font-sans text-ink-500">
+                            Cairo University, Faculty of Pharmacy (FOPCU)
+                        </div>
+                        <p class="text-sm font-serif text-ink-700 dark:text-ink-300 leading-relaxed pt-1">
+                            Five-year professional degree covering pharmaceutical sciences, pharmacotherapy, pharmaceutical microbiology, and infectious diseases.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Affiliations -->
+                <div class="pt-4 border-t border-ink-100 dark:border-ink-800/80 flex flex-wrap items-center justify-between text-xs font-sans text-ink-600 dark:text-ink-400 gap-2">
+                    <div>
+                        <strong class="font-medium text-ink-900 dark:text-ink-200">Professional Affiliation:</strong> 
+                        Member, Applied Microbiology International (AMI)
+                    </div>
+                    <div>
+                        Cairo, Egypt
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT -->
+        <section id="contact" class="space-y-6 pt-6 border-t border-ink-200 dark:border-ink-800 scroll-mt-20">
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-serif text-ink-900 dark:text-ink-50 font-normal">
+                    Contact
+                </h2>
+                <p class="text-sm font-serif text-ink-600 dark:text-ink-400 leading-relaxed max-w-xl">
+                    Open to research collaborations, academic inquiries, and computational metagenomics discussions.
+                </p>
+            </div>
+
+            <div class="space-y-3 text-sm font-sans">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6">
+                    <span class="w-20 text-xs font-mono uppercase text-ink-500">Email</span>
+                    <a href="mailto:mahmoudfm.faheem@gmail.com" class="text-ink-900 dark:text-ink-100 editorial-link">
+                        mahmoudfm.faheem@gmail.com
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6">
+                    <span class="w-20 text-xs font-mono uppercase text-ink-500">Phone</span>
+                    <span class="text-ink-800 dark:text-ink-200 font-mono text-xs">
+                        +20 111 785 0777
+                    </span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6">
+                    <span class="w-20 text-xs font-mono uppercase text-ink-500">Social</span>
+                    <div class="flex items-center gap-4 text-ink-800 dark:text-ink-200">
+                        <a href="https://linkedin.com/in/mahmoudfaheem" target="_blank" rel="noopener noreferrer" class="editorial-link">LinkedIn &nearr;</a>
+                        <a href="https://github.com/MahmoudFaheem" target="_blank" rel="noopener noreferrer" class="editorial-link">GitHub &nearr;</a>
+                        <a href="https://twitter.com/faheemmfm" target="_blank" rel="noopener noreferrer" class="editorial-link">X &nearr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="no-print mt-20 border-t border-ink-200/60 dark:border-ink-800/60 py-8 bg-warmbg dark:bg-darkbg text-xs font-mono text-ink-500 text-center space-y-1">
+        <div>
+            &copy; <span id="yearSpan"></span> Mahmoud Faheem Mohamed Faheem
+        </div>
+        <div class="text-[11px] text-ink-400">
+            Microbial Genomics &bull; Bioinformatics &bull; Antimicrobial Resistance
+        </div>
+    </footer>
+
+    <!-- MODAL: PRINT-FRIENDLY FULL CV -->
+    <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 md:p-10">
+        <div id="cv-modal-content" class="relative max-w-3xl mx-auto bg-white dark:bg-zinc-900 text-black dark:text-white p-8 sm:p-12 rounded shadow-2xl space-y-8 font-serif">
+            
+            <!-- Modal Actions Bar -->
+            <div class="no-print flex items-center justify-between border-b pb-4 border-zinc-200 dark:border-zinc-800 font-sans">
+                <span class="text-xs uppercase font-mono tracking-widest text-zinc-500">Curriculum Vitae</span>
+                <div class="flex items-center gap-3">
+                    <button onclick="window.print()" class="px-3 py-1.5 rounded bg-zinc-900 hover:bg-black dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-black text-xs font-medium flex items-center gap-1.5 shadow">
+                        <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                        <span>Print / Save PDF</span>
+                    </button>
+                    <button onclick="closeCvModal()" class="p-1.5 text-zinc-500 hover:text-black dark:hover:text-white rounded">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CV Header -->
+            <div class="text-center space-y-2 border-b border-zinc-200 dark:border-zinc-800 pb-6">
+                <h2 class="text-2xl sm:text-3xl font-serif uppercase tracking-wider font-semibold">
+                    MAHMOUD FAHEEM MOHAMED FAHEEM
+                </h2>
+                <div class="text-xs font-sans text-zinc-600 dark:text-zinc-400 space-x-2">
+                    <span>mahmoudfm.faheem@gmail.com</span>
+                    <span>&bull;</span>
+                    <span>+20 111 785 0777</span>
+                    <span>&bull;</span>
+                    <span>Cairo, Egypt</span>
+                </div>
+                <div class="text-xs font-sans text-zinc-600 dark:text-zinc-400 space-x-2">
+                    <span>LinkedIn: linkedin.com/in/mahmoudfaheem</span>
+                    <span>&bull;</span>
+                    <span>X: @faheemmfm</span>
+                    <span>&bull;</span>
+                    <span>GitHub: github.com/MahmoudFaheem</span>
+                </div>
+                <p class="text-xs font-serif italic text-zinc-700 dark:text-zinc-300 pt-2 max-w-xl mx-auto">
+                    Early-career researcher with training in bioinformatics, microbial genomics, metagenomics, and antimicrobial resistance analysis.
+                </p>
+            </div>
+
+            <!-- CV Section: Experience -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Research &amp; Professional Experience
+                </h3>
+                
+                <div class="space-y-4 text-xs font-sans">
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Teaching Assistant | Modern University for Technology &amp; Information (MTI)</span>
+                            <span class="font-mono">2023 &mdash; Present</span>
+                        </div>
+                        <p class="font-serif text-sm mt-0.5">
+                            Teaching undergraduate laboratory tutorials and delivering technical mentorship in fundamental microbiology, immunology within the Faculty of Pharmacy.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Research Intern (Volunteer) | Children's Cancer Hospital Egypt 57357 (CCHE)</span>
+                            <span class="font-mono">2023 &mdash; 2024</span>
+                        </div>
+                        <p class="font-serif text-sm mt-0.5">
+                            Volunteer research intern at the Microbiology and Immunology Research Program.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Teaching Assistant &amp; Research Assistant | October 6 University</span>
+                            <span class="font-mono">2020 &mdash; 2022</span>
+                        </div>
+                        <ul class="list-disc list-inside font-serif text-sm mt-0.5 space-y-0.5">
+                            <li>Supervised undergraduate laboratory cohorts across microbiology and immunology curricula.</li>
+                            <li>Designed and delivered 10 interactive workshops focused on eukaryotic DNA isolation strategies and downstream agarose gel electrophoresis analysis (Biotechnology Unit).</li>
+                            <li>Participated in a cytotoxicity study evaluating MCF-7 breast cancer cell line kinetics; performing cell viability assays using hemocytometer, Trypan blue exclusion, and MTT colorimetric assays (Cell Culture Unit).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Database Developer &amp; Lead Curation | COCTAIL Hub Project</span>
+                            <span class="font-mono">2020 &mdash; Present</span>
+                        </div>
+                        <ul class="list-disc list-inside font-serif text-sm mt-0.5 space-y-0.5">
+                            <li>Developed and actively maintained an evidence-based literature repository mapping over 1900 PubMed-indexed COVID-19 clinical and epidemiological trials (host-pathogen.net/covid/coctail.html).</li>
+                            <li>Hosted on the Faculty of Pharmacy, Cairo University website as an official institutional resource on the COVID-19 pandemic.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Project Lead (Ex)-Student Research Team | Faculty of Pharmacy, Cairo University (FOPCU)</span>
+                            <span class="font-mono">2017 &mdash; Present</span>
+                        </div>
+                        <ul class="list-disc list-inside font-serif text-sm mt-0.5 space-y-0.5">
+                            <li>Led a student research team to curate a comprehensive antimicrobial resistance gene database, cataloging 1690+ resistance variants with associated amino acid substitutions and 3380+ nucleic acid and protein sequences.</li>
+                            <li>Architected and deployed the system as a relational database with an interactive web interface linked to bioinformatics resources and tools, including NCBI, BLAST, and UniProt.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Research Intern | Faculty of Pharmacy, Cairo University</span>
+                            <span class="font-mono">Summer 2017</span>
+                        </div>
+                        <p class="font-serif text-sm mt-0.5">
+                            Summer internship at the Department of Microbiology and Immunology included both in silico and wet lab experiments on <em>Acinetobacter baumannii</em> strains, as part of a research project evaluating a six-month treatment regimen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Section: Education -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Education
+                </h3>
+                
+                <div class="space-y-3 text-xs font-sans">
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>MSc in Pharmaceutical Sciences (Microbiology &amp; Immunology) | Ain Shams University</span>
+                            <span class="font-mono">2021 &mdash; Present</span>
+                        </div>
+                        <p class="font-serif text-sm">
+                            Faculty of Pharmacy. Core coursework completed; currently working on master's project focused on microbial genomics and resistome profiling.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Postgraduate Diploma in Genomics &amp; Bioinformatics | FOPCU</span>
+                            <span class="font-mono">2020 &mdash; 2021</span>
+                        </div>
+                        <p class="font-serif text-sm">
+                            Advanced training in genomics, multi-omics, high-throughput sequencing data analysis, R, Python, and Linux.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Bachelor of Pharmacy (Clinical Pharmacy) | FOPCU</span>
+                            <span class="font-mono">2013 &mdash; 2018</span>
+                        </div>
+                        <p class="font-serif text-sm">
+                            Five-year professional degree covering pharmaceutical sciences, pharmacotherapy, pharmaceutical microbiology, and infectious diseases.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Section: Technical Skills -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Technical Skills
+                </h3>
+                
+                <ul class="text-xs font-sans space-y-1.5 list-disc list-inside">
+                    <li><strong>Bioinformatics &amp; Data Analysis:</strong> Metagenomic and genomic sequence analysis (FASTQ/FASTA), command-line sequence alignment and sequence data processing using Bowtie2, DIAMOND, SAMtools, BEDTools, and the NCBI SRA Toolkit.</li>
+                    <li><strong>Programming &amp; Computational Tools:</strong> R (RStudio), Python, Bash scripting (Linux/Unix), and AWK; basic knowledge of SQL and PHP.</li>
+                    <li><strong>Specialized Bioinformatics Resources:</strong> NCBI, PubMed, BLAST, CARD, BV-BRC, and Ensembl for sequence analysis and database searches.</li>
+                    <li><strong>Microbiology &amp; Molecular Biology Techniques:</strong> BSL-2 laboratory practices, aseptic techniques, bacterial isolation and culture, Gram and differential staining, biochemical identification, antimicrobial susceptibility testing (disc diffusion and MIC), bacterial stock preservation, genomic DNA extraction (QIAamp kits), PCR amplification, agarose gel electrophoresis.</li>
+                </ul>
+            </div>
+
+            <!-- CV Section: Posters & Presentations -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-sans uppercase font-bold tracking-wider border-b border-zinc-300 dark:border-zinc-700 pb-1">
+                    Posters &amp; Presentations
+                </h3>
+                
+                <div class="space-y-2 text-xs font-sans">
+                    <p class="font-serif text-sm">
+                        <strong>Text Mining &ndash; COCTAIL: The COVID-19 Clinical Trial and Intervention Literature Hub</strong><br>
+                        Prof. Ramy K. Aziz (presenting author), Mahmoud Faheem, Shaimaa Hegazy.<br>
+                        <em>Poster, International Society for Computational Biology (ISCB) Conference, Colorado, USA, Dec. 2021.</em>
+                    </p>
+                    <p class="font-serif text-sm">
+                        <strong>Database of antimicrobial resistance genes: Modeling and predicting the resistome</strong><br>
+                        Presenting members: Shaimaa Hegazy, Mahmoud Faheem.<br>
+                        <em>Oral presentation, 9th International Scientific Conference of the Faculty of Pharmacy, Cairo University (ISC-FOPCU), Cairo, Egypt, April 2018.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- CV Section: Affiliations -->
+            <div class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800 text-xs font-sans">
+                <div><strong>Professional Affiliations:</strong> Membership, Applied Microbiology International (AMI).</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        // Theme management
+        const themeToggleBtn = document.getElementById('themeToggle');
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        initTheme();
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            if (typeof initParticles === 'function') initParticles();
+        });
+
+        // Mobile drawer toggling
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Filter for Presentations, Workshops & Symposia
+        function filterEntries(category) {
+            const items = document.querySelectorAll('.entry-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-target') === category) {
+                    btn.className = "filter-btn active-filter px-2.5 py-1 rounded border border-ink-300 dark:border-ink-700 bg-ink-200 dark:bg-ink-700 text-ink-900 dark:text-white";
+                } else {
+                    btn.className = "filter-btn px-2.5 py-1 rounded border border-ink-200 dark:border-ink-800 hover:bg-ink-100 dark:hover:bg-ink-800 text-ink-600 dark:text-ink-400";
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'grid';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // CV Modal controls
+        function openCvModal() {
+            document.getElementById('cv-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCvModal() {
+            document.getElementById('cv-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCvModal();
+        });
+        document.getElementById('cv-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'cv-modal') closeCvModal();
+        });
+
+        // Icons
+        window.onload = function() {
+            if (window.lucide) lucide.createIcons();
+        };
+
+        /* =====================================================================
+           PURE POINTILLIST PARTICLE CANVAS (Seamlessly integrated)
+           ===================================================================== */
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationFrameId = null;
+        let mouse = { x: -1000, y: -1000, radius: 50 };
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            mouse.x = (e.clientX - rect.left) * scaleX;
+            mouse.y = (e.clientY - rect.top) * scaleY;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
+        class StippleDot {
+            constructor(originX, originY, radius, alpha, dotColor) {
+                this.originX = originX;
+                this.originY = originY;
+
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.random() * 240 + 80;
+                this.x = originX + Math.cos(angle) * dist;
+                this.y = originY + Math.sin(angle) * dist;
+
+                this.vx = (Math.random() - 0.5) * 5;
+                this.vy = (Math.random() - 0.5) * 5;
+                this.ease = Math.random() * 0.038 + 0.032;
+                this.friction = 0.88;
+                this.radius = radius;
+                this.alpha = alpha;
+                this.dotColor = dotColor;
+            }
+
+            update() {
+                const dx = this.originX - this.x;
+                const dy = this.originY - this.y;
+
+                this.vx += dx * this.ease;
+                this.vy += dy * this.ease;
+                this.vx *= this.friction;
+                this.vy *= this.friction;
+
+                const mx = this.x - mouse.x;
+                const my = this.y - mouse.y;
+                const distToMouse = Math.hypot(mx, my);
+                if (distToMouse < mouse.radius) {
+                    const force = (mouse.radius - distToMouse) / mouse.radius;
+                    const angle = Math.atan2(my, mx);
+                    this.vx += Math.cos(angle) * force * 12;
+                    this.vy += Math.sin(angle) * force * 12;
+                }
+
+                this.x += this.vx;
+                this.y += this.vy;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `${this.dotColor}${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            particles = [];
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const dotColor = isDark ? 'rgba(230, 233, 238, ' : 'rgba(21, 22, 24, ';
+
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.src = "profile.jpg";
+
+            img.onload = () => {
+                const offCanvas = document.createElement('canvas');
+                const offCtx = offCanvas.getContext('2d');
+                offCanvas.width = canvas.width;
+                offCanvas.height = canvas.height;
+
+                offCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                const imgData = offCtx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+                const step = 2;
+                for (let y = 0; y < canvas.height; y += step) {
+                    for (let x = 0; x < canvas.width; x += step) {
+                        const idx = (y * canvas.width + x) * 4;
+                        const r = imgData[idx];
+                        const g = imgData[idx + 1];
+                        const b = imgData[idx + 2];
+                        const lum = (r * 0.299 + g * 0.587 + b * 0.114);
+
+                        if (lum > 24) {
+                            const norm = Math.min(1.0, (lum - 24) / 200);
+                            const prob = Math.pow(norm, 0.6) * 0.82 + 0.15;
+                            if (Math.random() < prob) {
+                                const jx = x + (Math.random() - 0.5) * 1.5;
+                                const jy = y + (Math.random() - 0.5) * 1.5;
+                                const radius = Math.max(0.55, Math.min(1.35, norm * 1.0 + 0.45));
+                                const alpha = Math.min(0.9, norm * 0.7 + 0.35).toFixed(2);
+                                particles.push(new StippleDot(jx, jy, radius, alpha, dotColor));
+                            }
+                        }
+                    }
+                }
+                animate();
+            };
+
+            img.onerror = () => {
+                console.warn("profile.jpg not found in root.");
+            };
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('DOMContentLoaded', initParticles);
+    </script>
 </body>
 </html>
